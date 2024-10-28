@@ -109,6 +109,12 @@ if( !class_exists( 'WC_Booster_Product_Companion_Block' ) ){
 						]
 					],
 					[
+						'selector' => ['.wc-booster-wishlist-button-wrapper .wc-booster-wishlist-button i', '.wc-booster-quick-view i', '.product-companion-cart-button i'],
+						'props' => [
+							'color' => 'color'
+						]
+					],
+					[
 						'selector' => '',
 						'props' => [
 							'flex-direction' => 'layout'
@@ -168,6 +174,8 @@ if( !class_exists( 'WC_Booster_Product_Companion_Block' ) ){
 			$wishlist = WC_Booster_Wish_List_Button_Block::get_instance();
 			$wl_attrs = $wishlist->get_default_attributes();
 
+			$enable_ajax = get_option('woocommerce_enable_ajax_add_to_cart');
+
 			$pid = $product->get_id();	
 		    ob_start();
 		    ?>
@@ -180,8 +188,10 @@ if( !class_exists( 'WC_Booster_Product_Companion_Block' ) ){
 		    	if ( $attrs['enableCart'] == 'enable' && $product && $product->is_in_stock() ) : ?>
 		    		<div class="product-companion-cart">
 		    			<div class="product-companion-cart-button">
-		    				<a href="<?php echo do_shortcode( '[add_to_cart_url id=' . $pid . ']' ) ?>" class="button add_to_cart_button ajax_add_to_cart">
-		    					<span class="cart-text"><span><?php echo esc_html__( 'Add to cart', 'wc-booster' )?></span></span>
+		    				<a href="<?php echo do_shortcode( '[add_to_cart_url id=' . $pid . ']' ); ?>" 
+		    					class="button add_to_cart_button <?php if ( $enable_ajax == 'yes' ) echo "ajax_add_to_cart" ?>" 
+		    					data-product_id="<?php echo esc_attr( $pid ); ?>">
+		    					<span class="cart-text"><span><?php echo esc_html__( 'Add to cart', 'wc-booster' ); ?></span></span>
 		    					<i class="fas fa-shopping-cart"></i>
 		    				</a>
 		    			</div>

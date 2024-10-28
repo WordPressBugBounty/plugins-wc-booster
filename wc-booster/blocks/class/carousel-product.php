@@ -427,6 +427,7 @@
 					$wl_attrs = $this->get_inner_block_attr( $wishlist, $attrs[ 'block_id' ] );
 				}
 
+
 				if( $query->have_posts() ):
 					ob_start();
 
@@ -536,7 +537,6 @@
 														<?php the_excerpt(); ?>
 													</div>
 												<?php endif; ?>
-
 												<?php if( $attrs[ 'enableButton' ] ): ?>
 													<div class="wc-booster-carousel-product-btn-wrapper">
 														<a href="<?php the_permalink(); ?>" class="wc-booster-carousel-product-btn" target="<?php echo ( $attrs[ 'wrapperTarget' ] ) ? "_blank" : "_self" ?>">

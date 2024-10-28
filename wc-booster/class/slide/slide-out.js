@@ -11,7 +11,6 @@
 		handleTriggerSlideOut: function( e, id, $button ){
 
 			SlideOut.triggerButton = $button;
-
 			$( '.slide-out-content-wrapper' ).hide();
 			$( '#' + id ).show();
 			$( 'body' ).addClass( SlideOut.bodyCls );

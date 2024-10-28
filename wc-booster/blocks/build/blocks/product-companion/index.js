@@ -41,7 +41,8 @@ const Edit = props => {
       position,
       positionTop,
       layout,
-      enableCart
+      enableCart,
+      color
     }
   } = props;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
@@ -59,6 +60,12 @@ const Edit = props => {
   }, []);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `#${blockProps.id} .block-editor-block-list__layout{
 					flex-direction: ${layout}
+				}`, `#${blockProps.id} .wc-booster-wrapper .wc-booster-wishlist-button i{
+					color: ${color} !important
+				}`, `#${blockProps.id} .wc-booster-quick-view i{
+					color: ${color}
+				}`, `#${blockProps.id} .product-companion-cart-button .add_to_cart_button i{
+					color: ${color}
 				}`), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
@@ -121,6 +128,7 @@ const InspectorPanel = props => {
   const {
     attributes: {
       bgColor,
+      color,
       position,
       tooglePostion,
       positionTop,
@@ -142,6 +150,12 @@ const InspectorPanel = props => {
         bgColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.isUndefined)(bgColor) ? "" : bgColor
       }),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Background Color", "wc-booster")
+    }, {
+      value: color,
+      onChange: color => setAttributes({
+        color: (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.isUndefined)(color) ? "" : color
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Color", "wc-booster")
     }]
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Add to cart button", "wc-booster"),
@@ -8391,7 +8405,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wc-booster/product-companion","version":"1.3","title":"Product Companion","category":"wc-booster","description":"Provides key product interactions like Quick View, Wishlist and add to cart button, enhancing the shopping experience with streamlined access to essential features.","attributes":{"block_id":{"type":"string"},"enableQuickView":{"type":"boolean","default":true},"enableWishList":{"type":"boolean","default":true},"enableCart":{"type":"string","default":"enable"},"bgColor":{"type":"string","default":"#fff"},"tooglePostion":{"type":"string","default":"left"},"layout":{"type":"string","default":"column"},"enableTextOnHover":{"type":"string","default":"visible"},"textPosition":{"type":"string","default":"right"},"position":{"type":"object","default":{"activeUnit":"px","units":["%","px","em"],"range":{"min":0,"max":500},"values":{"desktop":10,"tablet":10,"mobile":10}}},"positionTop":{"type":"object","default":{"activeUnit":"px","units":["%","px","em"],"range":{"min":-100,"max":500},"values":{"desktop":40,"tablet":40,"mobile":40}}}},"usesContext":["postId"],"textdomain":"wc-booster","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wc-booster/product-companion","version":"1.3","title":"Product Companion","category":"wc-booster","description":"Provides key product interactions like Quick View, Wishlist and add to cart button, enhancing the shopping experience with streamlined access to essential features.","attributes":{"block_id":{"type":"string"},"enableQuickView":{"type":"boolean","default":true},"enableWishList":{"type":"boolean","default":true},"enableCart":{"type":"string","default":"enable"},"bgColor":{"type":"string","default":"#fff"},"color":{"type":"string","default":"#000"},"tooglePostion":{"type":"string","default":"left"},"layout":{"type":"string","default":"column"},"enableTextOnHover":{"type":"string","default":"visible"},"textPosition":{"type":"string","default":"right"},"position":{"type":"object","default":{"activeUnit":"px","units":["%","px","em"],"range":{"min":0,"max":500},"values":{"desktop":10,"tablet":10,"mobile":10}}},"positionTop":{"type":"object","default":{"activeUnit":"px","units":["%","px","em"],"range":{"min":-100,"max":500},"values":{"desktop":40,"tablet":40,"mobile":40}}}},"usesContext":["postId"],"textdomain":"wc-booster","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

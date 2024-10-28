@@ -1,4 +1,4 @@
-/*! wc-booster - v1.0.0 - 2024-10-07 */(function( $ ){
+/*! wc-booster - v1.0.0 - 2024-10-28 */(function( $ ){
 var circular_focus = {
 	init: function(){
 		var _this = this;
@@ -349,7 +349,7 @@ $(document).on( 'added_to_cart', function( e, fragments, hash ){
 	    $( '.slide-out-toggler .cart-icon .count' ).text( fragments[ 'total-cart-items' ] );
 	    var $html = $.parseHTML( fragments[ 'div.widget_shopping_cart_content' ] );
 	    CART.update( $html );
-	    $( document ).trigger( 'slide-out', [ 'mini-cart-slide', '' ] );
+	    //$( document ).trigger( 'slide-out', [ 'mini-cart-slide', '' ] );
 	}
 });
 $(document).ready(function(){

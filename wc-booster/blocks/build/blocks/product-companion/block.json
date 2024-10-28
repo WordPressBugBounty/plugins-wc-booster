@@ -26,6 +26,10 @@
       "type": "string",
       "default": "#fff"
     },
+    "color": {
+      "type": "string",
+      "default": "#000"
+    },
     "tooglePostion": {
       "type": "string",
       "default": "left"

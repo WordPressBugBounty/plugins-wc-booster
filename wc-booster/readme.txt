@@ -4,7 +4,7 @@ Tags: online, ecommerce, shop, storefront, store
 Requires at least: 6.1
 Tested up to: 6.5
 Requires PHP: 7.3
-Stable tag: 2.4
+Stable tag: 2.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -219,5 +219,10 @@ License: https://github.com/t4t5/sweetalert/blob/master/LICENSE.md (MIT License)
 * Fixed redirecting issue while clicking on product title on whish list table block
 
 = 2.4 =
-* Fixed carousel product block minor issue
+* Fixing carousel product block minor issue
 
+= 2.5 =
+* Added icon color option on product companion block
+* Issue fixed with ajax add to cart button on product companion block
+* Issue fixed with overlay while adding product
+* Fixed loader design on product companion block
