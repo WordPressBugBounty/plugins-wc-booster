@@ -485,7 +485,7 @@
     },
     "enableDescription": {
       "type": "boolean",
-      "default": true
+      "default": false
     },
     "enableButton": {
       "type": "boolean",

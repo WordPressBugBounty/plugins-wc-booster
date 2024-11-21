@@ -102,10 +102,57 @@
     "textPosition": {
       "type": "string",
       "default": "right"
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "activeUnit": "px",
+        "isLinkActive": false,
+        "properties": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "responsiveViews": [
+          "desktop",
+          "tablet",
+          "mobile"
+        ],
+        "units": [
+          "px",
+          "rem"
+        ],
+        "values": {
+          "desktop": [
+            3,
+            3,
+            3,
+            3
+          ],
+          "tablet": [
+            3,
+            3,
+            3,
+            3
+          ],
+          "mobile": [
+            3,
+            3,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 10
     }
   },
   "usesContext": [
-    "postId"
+    "postId",
+    "postType"
   ],
   "textdomain": "wc-booster",
   "editorScript": "file:./index.js",

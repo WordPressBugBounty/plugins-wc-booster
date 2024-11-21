@@ -329,6 +329,7 @@
   position: relative;
   padding: 20px;
   border: 1px solid #eee;
+  max-width: 348px;
 }
 .wc-booster-icon-selector .popup-content {
   box-shadow: 0 3px 30px rgba(25, 30, 35, 0.1) !important;
@@ -452,6 +453,7 @@
   padding: 0;
   border-radius: 3px;
   overflow: hidden;
+  flex-wrap: wrap;
 }
 .wc-booster-icon-selector .wc-booster-icon-selector-pagination .wc-booster-pagination li {
   display: inline-block;
@@ -467,7 +469,7 @@
   color: #8a8a8a;
   display: block;
   font-size: 13px;
-  padding: 5px;
+  padding: 8px;
   line-height: 0.9;
   border-left: 1px solid #ddd;
   border-top: 1px solid #ddd;
@@ -1386,11 +1388,13 @@ input.block-editor-url-input__input {
   fill: #000;
 }
 
-div[aria-label="WC Booster"] span.block-editor-block-types-list__item-title {
+div[aria-label="WC Booster"] span.block-editor-block-types-list__item-title,
+div[aria-label="WC Booster Single Product"] span.block-editor-block-types-list__item-title {
   font-weight: 600;
   margin-top: 4px;
 }
-div[aria-label="WC Booster"] button span.block-editor-block-types-list__item-icon {
+div[aria-label="WC Booster"] button span.block-editor-block-types-list__item-icon,
+div[aria-label="WC Booster Single Product"] button span.block-editor-block-types-list__item-icon {
   background: #ececec;
   border-radius: 6px;
   padding: 15px;
@@ -1401,14 +1405,16 @@ div[aria-label="WC Booster"] button span.block-editor-block-types-list__item-ico
   align-items: center;
   justify-content: center;
 }
-div[aria-label="WC Booster"] button span.block-editor-block-types-list__item-icon svg {
+div[aria-label="WC Booster"] button span.block-editor-block-types-list__item-icon svg,
+div[aria-label="WC Booster Single Product"] button span.block-editor-block-types-list__item-icon svg {
   height: 15px;
   width: 15px;
   min-height: 15px;
   min-width: 15px;
   fill: #000;
 }
-div[aria-label="WC Booster"] button span.block-editor-block-types-list__item-icon svg path {
+div[aria-label="WC Booster"] button span.block-editor-block-types-list__item-icon svg path,
+div[aria-label="WC Booster Single Product"] button span.block-editor-block-types-list__item-icon svg path {
   fill: #000;
 }
 

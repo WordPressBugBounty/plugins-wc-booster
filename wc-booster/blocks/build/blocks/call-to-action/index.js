@@ -215,14 +215,36 @@ const InspectorPanel = props => {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("General", "wc-booster"),
     initialOpen: true
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_responsive_range_wrapper__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("CONTENT WIDTH", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Content Width", "wc-booster"),
     defaultValue: def("contentWidth"),
     value: contentWidth,
     onChange: contentWidth => setAttributes({
       contentWidth
     }),
     beforeIcon: ""
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Overlay Opacity", "wc-booster"),
+    value: opacity,
+    onChange: opacity => {
+      setAttributes({
+        opacity
+      });
+    },
+    min: 0,
+    max: 10
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.RangeControl, {
+    label: "Border Radius",
+    value: borderRadius,
+    onChange: borderRadius => {
+      setAttributes({
+        borderRadius
+      });
+    },
+    min: 0,
+    max: 100
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wc-booster-custom-select"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Content Alignment", "wc-booster"),
     options: [{
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Left", "wc-booster"),
@@ -235,27 +257,7 @@ const InspectorPanel = props => {
     onChange: contentAlignment => setAttributes({
       contentAlignment
     })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.RangeControl, {
-    label: "Border Radius",
-    value: borderRadius,
-    onChange: borderRadius => {
-      setAttributes({
-        borderRadius
-      });
-    },
-    min: 0,
-    max: 100
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.RangeControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Overlay Opacity", "wc-booster"),
-    value: opacity,
-    onChange: opacity => {
-      setAttributes({
-        opacity
-      });
-    },
-    min: 0,
-    max: 10
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Image", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_image_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -295,35 +297,6 @@ const InspectorPanel = props => {
       bgRepeat
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Color", "wc-booster"),
-    initialOpen: false
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_1__.PanelColor, {
-    colorSettings: [{
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Overlay Color"),
-      value: overlay,
-      onChange: overlay => setAttributes({
-        overlay: (0,_helpers__WEBPACK_IMPORTED_MODULE_10__.isUndefined)(overlay) ? '' : overlay
-      })
-    }, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Background Color"),
-      value: bgColor,
-      onChange: bgColor => setAttributes({
-        bgColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_10__.isUndefined)(bgColor) ? '' : bgColor
-      })
-    }, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Heading Color"),
-      value: headingColor,
-      onChange: headingColor => setAttributes({
-        headingColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_10__.isUndefined)(headingColor) ? '' : headingColor
-      })
-    }, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Sub Description Color"),
-      value: subDescriptionColor,
-      onChange: subDescriptionColor => setAttributes({
-        subDescriptionColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_10__.isUndefined)(subDescriptionColor) ? '' : subDescriptionColor
-      })
-    }]
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Typography", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_typography__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -357,6 +330,35 @@ const InspectorPanel = props => {
     onChange: subDescriptionMargin => setAttributes({
       subDescriptionMargin
     })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Color", "wc-booster"),
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_1__.PanelColor, {
+    colorSettings: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Overlay Color"),
+      value: overlay,
+      onChange: overlay => setAttributes({
+        overlay: (0,_helpers__WEBPACK_IMPORTED_MODULE_10__.isUndefined)(overlay) ? '' : overlay
+      })
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Background Color"),
+      value: bgColor,
+      onChange: bgColor => setAttributes({
+        bgColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_10__.isUndefined)(bgColor) ? '' : bgColor
+      })
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Heading Color"),
+      value: headingColor,
+      onChange: headingColor => setAttributes({
+        headingColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_10__.isUndefined)(headingColor) ? '' : headingColor
+      })
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Sub Description Color"),
+      value: subDescriptionColor,
+      onChange: subDescriptionColor => setAttributes({
+        subDescriptionColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_10__.isUndefined)(subDescriptionColor) ? '' : subDescriptionColor
+      })
+    }]
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InspectorPanel);
@@ -2013,7 +2015,9 @@ const getQuickViewStyle = attributes => {
     left: getResponsiveRangeVal(attributes.left),
     backgroundColor: attributes.bgColor,
     color: attributes.color,
-    ...getTypoStyle(attributes.textTypo)
+    ...getTypoStyle(attributes.textTypo),
+    ...getDimensionStyle("padding", attributes.padding),
+    borderRadius: attributes.borderRadius + "%"
   };
   return style;
 };

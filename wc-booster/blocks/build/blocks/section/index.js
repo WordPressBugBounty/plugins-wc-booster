@@ -468,14 +468,14 @@ const InspectorPanel = props => {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Spacing", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Section (Padding)", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Section Padding", "wc-booster"),
     defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_14__.attributes.padding["default"],
     value: padding,
     onChange: padding => setAttributes({
       padding
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Section (margin)", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Section Margin", "wc-booster"),
     defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_14__.attributes.margin["default"],
     value: margin,
     onChange: margin => setAttributes({
@@ -2586,7 +2586,9 @@ const getQuickViewStyle = attributes => {
     left: getResponsiveRangeVal(attributes.left),
     backgroundColor: attributes.bgColor,
     color: attributes.color,
-    ...getTypoStyle(attributes.textTypo)
+    ...getTypoStyle(attributes.textTypo),
+    ...getDimensionStyle("padding", attributes.padding),
+    borderRadius: attributes.borderRadius + "%"
   };
   return style;
 };

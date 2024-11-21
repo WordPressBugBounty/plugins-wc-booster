@@ -85,6 +85,14 @@ if( !class_exists( 'WC_Booster_Quick_View_Block' ) ){
 				);
 			}
 
+			$padding = self::get_initial_responsive_props();
+
+			if( isset( $attrs[ 'padding' ] ) ){
+				$padding = self::get_dimension_props( 'padding',
+					$attrs[ 'padding' ]
+				);
+			}
+
 			foreach( self::$devices as $device ){
 
 				$styles = [
@@ -95,6 +103,10 @@ if( !class_exists( 'WC_Booster_Quick_View_Block' ) ){
 					[
 						'selector' => $wrapper,
 						'props' => $text_typo[ $device ]
+					],
+					[
+						'selector' => '.wc-booster-quick-view-button i',
+						'props' => $padding[ $device ]
 					]
 				];
 
@@ -128,10 +140,14 @@ if( !class_exists( 'WC_Booster_Quick_View_Block' ) ){
 					)
 				],
 				[
-					'selector' => $wrapper,
+					'selector' => '.wc-booster-quick-view-button i',
 					'props' => array_merge(
 						[
 							'background-color' => 'bgColor',
+							'border-radius' => [
+								'unit' => '%',
+								'value' => $attrs[ 'borderRadius' ]
+							]
 						]
 					)
 				],

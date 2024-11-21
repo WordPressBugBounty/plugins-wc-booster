@@ -85,10 +85,101 @@
           "mobile": 40
         }
       }
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 0
+    },
+    "layoutColumnPadding": {
+      "type": "object",
+      "default": {
+        "activeUnit": "px",
+        "isLinkActive": true,
+        "properties": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "responsiveViews": [
+          "desktop",
+          "tablet",
+          "mobile"
+        ],
+        "units": [
+          "px",
+          "rem"
+        ],
+        "values": {
+          "desktop": [
+            9,
+            10,
+            9,
+            10
+          ],
+          "tablet": [
+            9,
+            10,
+            9,
+            10
+          ],
+          "mobile": [
+            9,
+            10,
+            9,
+            10
+          ]
+        }
+      }
+    },
+    "layoutRowPadding": {
+      "type": "object",
+      "default": {
+        "activeUnit": "px",
+        "isLinkActive": true,
+        "properties": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "responsiveViews": [
+          "desktop",
+          "tablet",
+          "mobile"
+        ],
+        "units": [
+          "px",
+          "rem"
+        ],
+        "values": {
+          "desktop": [
+            8,
+            13,
+            5,
+            13
+          ],
+          "tablet": [
+            8,
+            13,
+            5,
+            13
+          ],
+          "mobile": [
+            8,
+            13,
+            5,
+            13
+          ]
+        }
+      }
     }
   },
   "usesContext": [
     "postId"
+  ],
+  "ancestor": [
+    "woocommerce/product-template"
   ],
   "textdomain": "wc-booster",
   "editorScript": "file:./index.js",

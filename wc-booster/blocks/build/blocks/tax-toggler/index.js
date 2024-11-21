@@ -182,6 +182,40 @@ const InspectorPanel = props => {
       exclusiveText: value
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Typography", "wc-booster"),
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Heading", "wc-booster"),
+    value: headingTypo,
+    defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_7__.attributes.headingTypo["default"],
+    onChange: headingTypo => setAttributes({
+      headingTypo
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Spacing", "wc-booster"),
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Text Padding", "wc-booster"),
+    defaultValue: def("txtPadding"),
+    value: txtPadding,
+    onChange: txtPadding => setAttributes({
+      txtPadding
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Padding", "wc-booster"),
+    defaultValue: def("padding"),
+    value: padding,
+    onChange: padding => setAttributes({
+      padding
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Margin", "wc-booster"),
+    defaultValue: def("margin"),
+    value: margin,
+    onChange: margin => setAttributes({
+      margin
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Color", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_1__.PanelColor, {
@@ -223,40 +257,6 @@ const InspectorPanel = props => {
     },
     min: 0,
     max: 100
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Typography", "wc-booster"),
-    initialOpen: false
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Heading", "wc-booster"),
-    value: headingTypo,
-    defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_7__.attributes.headingTypo["default"],
-    onChange: headingTypo => setAttributes({
-      headingTypo
-    })
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Spacing", "wc-booster"),
-    initialOpen: false
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Text Padding", "wc-booster"),
-    defaultValue: def("txtPadding"),
-    value: txtPadding,
-    onChange: txtPadding => setAttributes({
-      txtPadding
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Padding", "wc-booster"),
-    defaultValue: def("padding"),
-    value: padding,
-    onChange: padding => setAttributes({
-      padding
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Margin", "wc-booster"),
-    defaultValue: def("margin"),
-    value: margin,
-    onChange: margin => setAttributes({
-      margin
-    })
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InspectorPanel);
@@ -1641,7 +1641,9 @@ const getQuickViewStyle = attributes => {
     left: getResponsiveRangeVal(attributes.left),
     backgroundColor: attributes.bgColor,
     color: attributes.color,
-    ...getTypoStyle(attributes.textTypo)
+    ...getTypoStyle(attributes.textTypo),
+    ...getDimensionStyle("padding", attributes.padding),
+    borderRadius: attributes.borderRadius + "%"
   };
   return style;
 };
@@ -8544,7 +8546,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wc-booster/tax-toggler","version":"1.0","title":"Tax Toggler","description":"The Product Tax Toggler block is a versatile addition to your WooCommerce store, enabling customers to toggle between viewing product prices with or without tax.","category":"wc-booster","attributes":{"block_id":{"type":"string"},"padding":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px"],"values":{"desktop":["12","20","12","20"],"tablet":["12","20","12","20"],"mobile":["12","20","12","20"]}}},"margin":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px"],"values":{"desktop":["12","0","12","0"],"tablet":["12","0","12","0"],"mobile":["12","0","12","0"]}}},"txtPadding":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px"],"values":{"desktop":["12","26","12","26"],"tablet":["12","26","12","26"],"mobile":["12","26","12","26"]}}},"textPadding":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"units":["px"],"values":["12","26","12","26"]}},"bgColor":{"type":"string","default":"#000"},"txtColor":{"type":"string","default":"#fff"},"inclusiveText":{"type":"string","default":"Inclusive Tax"},"inclusiveLink":{"type":"string","default":""},"exclusiveText":{"type":"string","default":"Exclusive Tax"},"exclusiveLink":{"type":"string","default":""},"activeTxtColor":{"type":"string","default":"#000"},"activeState":{"type":"string","default":"inclusive"},"activeBgColor":{"type":"string","default":"#fff"},"borderRadius":{"type":"number","default":100},"headingTypo":{"type":"object","default":{"fontFamily":"","fontSize":{"units":["px","em","rem"],"activeUnit":"px","values":{"desktop":20,"tablet":18,"mobile":16}},"fontWeight":600,"lineHeight":{"activeUnit":"","units":[""],"values":{"desktop":1,"tablet":1,"mobile":1}}}}},"textdomain":"wc-booster","editorScript":"file:./index.js","viewScript":"file:./tax-toggler.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wc-booster/tax-toggler","version":"1.0","title":"Tax Toggler","description":"The Product Tax Toggler block is a versatile addition to your WooCommerce store, enabling customers to toggle between viewing product prices with or without tax.","category":"wc-booster","attributes":{"block_id":{"type":"string"},"padding":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px"],"values":{"desktop":["9","10","9","10"],"tablet":["9","10","9","10"],"mobile":["9","10","9","10"]}}},"margin":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px"],"values":{"desktop":["12","0","12","0"],"tablet":["12","0","12","0"],"mobile":["12","0","12","0"]}}},"txtPadding":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px"],"values":{"desktop":["8","12","8","12"],"tablet":["8","12","8","12"],"mobile":["8","12","12","26"]}}},"textPadding":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"units":["px"],"values":["12","26","12","26"]}},"bgColor":{"type":"string","default":"#c7c7c7"},"txtColor":{"type":"string","default":"#000"},"inclusiveText":{"type":"string","default":"Inclusive Tax"},"inclusiveLink":{"type":"string","default":""},"exclusiveText":{"type":"string","default":"Exclusive Tax"},"exclusiveLink":{"type":"string","default":""},"activeTxtColor":{"type":"string","default":"#000"},"activeState":{"type":"string","default":"inclusive"},"activeBgColor":{"type":"string","default":"#f3f3f3"},"borderRadius":{"type":"number","default":100},"headingTypo":{"type":"object","default":{"fontFamily":"","fontSize":{"units":["px","em","rem"],"activeUnit":"px","values":{"desktop":16,"tablet":16,"mobile":16}},"fontWeight":500,"lineHeight":{"activeUnit":"","units":[""],"values":{"desktop":1,"tablet":1,"mobile":1}}}}},"textdomain":"wc-booster","editorScript":"file:./index.js","viewScript":"file:./tax-toggler.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

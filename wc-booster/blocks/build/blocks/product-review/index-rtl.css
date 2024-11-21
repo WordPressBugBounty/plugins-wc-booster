@@ -33,3 +33,9 @@
   position: absolute;
   right: 0;
 }
+
+.components-base-control__label {
+  text-transform: inherit !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}

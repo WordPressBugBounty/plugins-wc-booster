@@ -2,9 +2,9 @@
 Contributors: uzess, pradip56, bhuwanroka, eaglethemes
 Tags: online, ecommerce, shop, storefront, store
 Requires at least: 6.1
-Tested up to: 6.5
+Tested up to: 6.7
 Requires PHP: 7.3
-Stable tag: 2.5
+Stable tag: 2.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -226,3 +226,9 @@ License: https://github.com/t4t5/sweetalert/blob/master/LICENSE.md (MIT License)
 * Issue fixed with ajax add to cart button on product companion block
 * Issue fixed with overlay while adding product
 * Fixed loader design on product companion block
+
+= 2.6 =
+* Added stock progress bar block
+* Added countdown block
+* Added padding/border radius options on quick view block
+* General design fixing

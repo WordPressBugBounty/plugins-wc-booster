@@ -31,22 +31,22 @@
         ],
         "values": {
           "desktop": [
-            "12",
-            "20",
-            "12",
-            "20"
+            "9",
+            "10",
+            "9",
+            "10"
           ],
           "tablet": [
-            "12",
-            "20",
-            "12",
-            "20"
+            "9",
+            "10",
+            "9",
+            "10"
           ],
           "mobile": [
-            "12",
-            "20",
-            "12",
-            "20"
+            "9",
+            "10",
+            "9",
+            "10"
           ]
         }
       }
@@ -113,20 +113,20 @@
         ],
         "values": {
           "desktop": [
+            "8",
             "12",
-            "26",
-            "12",
-            "26"
+            "8",
+            "12"
           ],
           "tablet": [
+            "8",
             "12",
-            "26",
-            "12",
-            "26"
+            "8",
+            "12"
           ],
           "mobile": [
+            "8",
             "12",
-            "26",
             "12",
             "26"
           ]
@@ -157,11 +157,11 @@
     },
     "bgColor": {
       "type": "string",
-      "default": "#000"
+      "default": "#c7c7c7"
     },
     "txtColor": {
       "type": "string",
-      "default": "#fff"
+      "default": "#000"
     },
     "inclusiveText": {
       "type": "string",
@@ -189,7 +189,7 @@
     },
     "activeBgColor": {
       "type": "string",
-      "default": "#fff"
+      "default": "#f3f3f3"
     },
     "borderRadius": {
       "type": "number",
@@ -207,12 +207,12 @@
           ],
           "activeUnit": "px",
           "values": {
-            "desktop": 20,
-            "tablet": 18,
+            "desktop": 16,
+            "tablet": 16,
             "mobile": 16
           }
         },
-        "fontWeight": 600,
+        "fontWeight": 500,
         "lineHeight": {
           "activeUnit": "",
           "units": [

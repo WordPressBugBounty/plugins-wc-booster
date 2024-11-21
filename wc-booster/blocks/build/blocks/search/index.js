@@ -179,23 +179,6 @@ const InspectorPanel = props => {
     }),
     beforeIcon: ""
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Color", "wc-booster"),
-    initialOpen: false
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_1__.PanelColor, {
-    colorSettings: [{
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("color"),
-      value: color,
-      onChange: color => setAttributes({
-        color
-      })
-    }, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Background color"),
-      value: bgColor,
-      onChange: bgColor => setAttributes({
-        bgColor
-      })
-    }]
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Spacing", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_responsive_range_wrapper__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -221,6 +204,23 @@ const InspectorPanel = props => {
     onChange: margin => setAttributes({
       margin
     })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Color", "wc-booster"),
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_1__.PanelColor, {
+    colorSettings: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("color"),
+      value: color,
+      onChange: color => setAttributes({
+        color
+      })
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Background color"),
+      value: bgColor,
+      onChange: bgColor => setAttributes({
+        bgColor
+      })
+    }]
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InspectorPanel);
@@ -1594,7 +1594,9 @@ const getQuickViewStyle = attributes => {
     left: getResponsiveRangeVal(attributes.left),
     backgroundColor: attributes.bgColor,
     color: attributes.color,
-    ...getTypoStyle(attributes.textTypo)
+    ...getTypoStyle(attributes.textTypo),
+    ...getDimensionStyle("padding", attributes.padding),
+    borderRadius: attributes.borderRadius + "%"
   };
   return style;
 };

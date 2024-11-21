@@ -719,50 +719,12 @@ const InspectorPanel = props => {
       arrowWidth
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_7__.RadiusControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Radius", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Border Radius", "wc-booster"),
     value: arrowRadius,
     initialPosition: def("arrowRadius"),
     defaultValue: def("arrowRadius"),
     onChange: arrowRadius => setAttributes({
       arrowRadius
-    })
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Spacing", "wc-booster"),
-    initialOpen: false
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title Margin", "wc-booster"),
-    value: titleMargin,
-    defaultValue: def("titleMargin"),
-    onChange: titleMargin => setAttributes({
-      titleMargin
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Item Margin", "wc-booster"),
-    value: itemMargin,
-    defaultValue: def("itemMargin"),
-    onChange: itemMargin => setAttributes({
-      itemMargin
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Rating Margin", "wc-booster"),
-    value: ratingMargin,
-    defaultValue: def("ratingMargin"),
-    onChange: ratingMargin => setAttributes({
-      ratingMargin
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Comment Margin", "wc-booster"),
-    value: commentMargin,
-    defaultValue: def("commentMargin"),
-    onChange: commentMargin => setAttributes({
-      commentMargin
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Content Padding", "wc-booster"),
-    value: contentPadding,
-    defaultValue: def("contentPadding"),
-    onChange: contentPadding => setAttributes({
-      contentPadding
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image", "wc-booster"),
@@ -833,6 +795,44 @@ const InspectorPanel = props => {
       ratingTypo
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Spacing", "wc-booster"),
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title Margin", "wc-booster"),
+    value: titleMargin,
+    defaultValue: def("titleMargin"),
+    onChange: titleMargin => setAttributes({
+      titleMargin
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Item Margin", "wc-booster"),
+    value: itemMargin,
+    defaultValue: def("itemMargin"),
+    onChange: itemMargin => setAttributes({
+      itemMargin
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Rating Margin", "wc-booster"),
+    value: ratingMargin,
+    defaultValue: def("ratingMargin"),
+    onChange: ratingMargin => setAttributes({
+      ratingMargin
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Comment Margin", "wc-booster"),
+    value: commentMargin,
+    defaultValue: def("commentMargin"),
+    onChange: commentMargin => setAttributes({
+      commentMargin
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Content Padding", "wc-booster"),
+    value: contentPadding,
+    defaultValue: def("contentPadding"),
+    onChange: contentPadding => setAttributes({
+      contentPadding
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Color", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_7__.PanelColor, {
@@ -2844,7 +2844,9 @@ const getQuickViewStyle = attributes => {
     left: getResponsiveRangeVal(attributes.left),
     backgroundColor: attributes.bgColor,
     color: attributes.color,
-    ...getTypoStyle(attributes.textTypo)
+    ...getTypoStyle(attributes.textTypo),
+    ...getDimensionStyle("padding", attributes.padding),
+    borderRadius: attributes.borderRadius + "%"
   };
   return style;
 };

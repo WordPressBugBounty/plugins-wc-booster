@@ -52,17 +52,14 @@ const Edit = props => {
     className: `${_constants__WEBPACK_IMPORTED_MODULE_5__.prefix}-wrapper`,
     style
   });
-
-  // Use useSelect to check if the block is inside a specific block
   const isInsideProductCompanion = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
     const {
       getBlockParents
-    } = select('core/block-editor');
-    const parents = getBlockParents(props.clientId); // Get parent block IDs
-    // Check if any parent is the Product Companion block
+    } = select("core/block-editor");
+    const parents = getBlockParents(props.clientId);
     return parents.some(parentId => {
-      const parentBlock = select('core/block-editor').getBlock(parentId);
-      return parentBlock && parentBlock.name === 'wc-booster/product-companion';
+      const parentBlock = select("core/block-editor").getBlock(parentId);
+      return parentBlock && parentBlock.name === "wc-booster/product-companion";
     });
   }, [props.clientId]);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, !isInsideProductCompanion && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -180,7 +177,7 @@ const InspectorPanel = props => {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Hover", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Text Position", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Label Position", "wc-booster"),
     value: textPosition,
     onChange: textPosition => setAttributes({
       textPosition
@@ -193,7 +190,7 @@ const InspectorPanel = props => {
     value: "right",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Right", "wc-booster")
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Enable Disable Text on hover", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Label on hover", "wc-booster"),
     value: enableTextOnHover,
     onChange: enableTextOnHover => setAttributes({
       enableTextOnHover
@@ -1644,7 +1641,9 @@ const getQuickViewStyle = attributes => {
     left: getResponsiveRangeVal(attributes.left),
     backgroundColor: attributes.bgColor,
     color: attributes.color,
-    ...getTypoStyle(attributes.textTypo)
+    ...getTypoStyle(attributes.textTypo),
+    ...getDimensionStyle("padding", attributes.padding),
+    borderRadius: attributes.borderRadius + "%"
   };
   return style;
 };
@@ -8547,7 +8546,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wc-booster/wish-list-button","version":"1.3","title":"Wish List Button","description":"This Block adds a convenient \'Add to Wishlist\' button to products, enabling users to save items for later viewing or purchase.","supports":{"align":true},"attributes":{"align":{"type":"string","default":"left"},"iconSize":{"type":"object","default":{"activeUnit":"px","units":["px","em"],"range":{"min":1,"max":2000},"values":{"desktop":16,"tablet":16,"mobile":16}}},"borderRadius":{"type":"number","default":10},"iconPosition":{"type":"string","default":"absolute"},"iconColor":{"type":"string","default":"#000"},"selectedIconColor":{"type":"string","default":"#FC5B62"},"bgColor":{"type":"string","default":""},"enableTextOnHover":{"type":"string","default":"visible"},"textPosition":{"type":"string","default":"right"},"position":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px","rem"],"values":{"desktop":[8,22],"tablet":[8,22],"mobile":[8,22]}}},"padding":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px","rem"],"values":{"desktop":[3,3,3,3],"tablet":[3,3,3,3],"mobile":[3,3,3,3]}}}},"usesContext":["postId"],"textdomain":"wc-booster","editorScript":"file:./index.js","viewScript":"file:./wish-list.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wc-booster/wish-list-button","version":"1.3","title":"Wish List Button","description":"This Block adds a convenient \'Add to Wishlist\' button to products, enabling users to save items for later viewing or purchase.","supports":{"align":true},"attributes":{"align":{"type":"string","default":"left"},"iconSize":{"type":"object","default":{"activeUnit":"px","units":["px","em"],"range":{"min":1,"max":2000},"values":{"desktop":16,"tablet":16,"mobile":16}}},"borderRadius":{"type":"number","default":10},"iconPosition":{"type":"string","default":"absolute"},"iconColor":{"type":"string","default":"#000"},"selectedIconColor":{"type":"string","default":"#FC5B62"},"bgColor":{"type":"string","default":""},"enableTextOnHover":{"type":"string","default":"visible"},"textPosition":{"type":"string","default":"right"},"position":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px","rem"],"values":{"desktop":[8,22],"tablet":[8,22],"mobile":[8,22]}}},"padding":{"type":"object","default":{"activeUnit":"px","isLinkActive":false,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px","rem"],"values":{"desktop":[3,3,3,3],"tablet":[3,3,3,3],"mobile":[3,3,3,3]}}}},"usesContext":["postId","postType"],"textdomain":"wc-booster","editorScript":"file:./index.js","viewScript":"file:./wish-list.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

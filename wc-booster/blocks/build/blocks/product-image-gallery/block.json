@@ -5,7 +5,9 @@
   "version": "1.0",
   "title": "Product Image Gallery",
   "description": "The Product Image Gallery Block displays a customizable image slider for WooCommerce products. It supports product variations and offers a responsive, smooth browsing experience on all devices.",
-  "category": "wc-booster",
+  "supports": {
+    "multiple": false
+  },
   "attributes": {
     "block_id": {
       "type": "string"

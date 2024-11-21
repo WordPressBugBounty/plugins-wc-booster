@@ -76,7 +76,20 @@ if( !class_exists( 'WC_Booster_Product_Companion_Block' ) ){
 					$positionTop = self::get_dimension_props( [ 'top' ], $attrs[ 'positionTop' ] );
 				}
 
+				$layout_column_padding = self::get_initial_responsive_props();
+				if( isset( $attrs[ 'layoutColumnPadding' ] ) ){
+					$layout_column_padding = self::get_dimension_props( 'padding', $attrs[ 'layoutColumnPadding' ] );
+				}
+
+				$layout_row_padding = self::get_initial_responsive_props();
+				if( isset( $attrs[ 'layoutRowPadding' ] ) ){
+					$layout_row_padding = self::get_dimension_props( 'padding', $attrs[ 'layoutRowPadding' ] );
+				}
+
 				foreach( [ 'mobile', 'tablet', 'desktop' ] as $device ){
+
+					$padding = ( $attrs[ 'layout' ] === 'column' ) ? $layout_column_padding[ $device ] : $layout_row_padding[ $device] ;
+
 					$css = [
 						[
 							'selector' => '',
@@ -85,6 +98,10 @@ if( !class_exists( 'WC_Booster_Product_Companion_Block' ) ){
 						[
 							'selector' => '',
 							'props'    => $positionTop[ $device ]
+						],
+						[
+							'selector' => '',
+							'props' => $padding,
 						]
 					];
 
@@ -105,7 +122,8 @@ if( !class_exists( 'WC_Booster_Product_Companion_Block' ) ){
 					[
 						'selector' => '',
 						'props' => [
-							'background' => 'bgColor'
+							'background' => 'bgColor',
+							'border-radius' => 'borderRadius'
 						]
 					],
 					[

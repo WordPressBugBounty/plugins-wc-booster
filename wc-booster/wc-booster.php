@@ -5,12 +5,12 @@
  * Description: Advance your business by giving customers a distinctive shopping experience with WC Booster.
  * Author: Eagle Vision IT
  * Author URI: https://www.eaglevisionit.com/
- * Version: 2.5
+ * Version: 2.6
  * Requires at least: 6.1
  * Text Domain: wc-booster
  * Requires PHP: 7.3
  * 
- * WC tested up to: 8.8.2
+ * WC tested up to: 9.4.1
  */
 
 # Exit if accessed directly.

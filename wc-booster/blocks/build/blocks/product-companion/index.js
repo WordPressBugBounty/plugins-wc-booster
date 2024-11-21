@@ -42,13 +42,18 @@ const Edit = props => {
       positionTop,
       layout,
       enableCart,
-      color
+      color,
+      borderRadius,
+      layoutColumnPadding,
+      layoutRowPadding
     }
   } = props;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     style: {
+      borderRadius: borderRadius,
       backgroundColor: bgColor,
       top: (0,_helpers__WEBPACK_IMPORTED_MODULE_7__.getResponsiveRangeVal)(positionTop),
+      ...(layout === 'column' ? (0,_helpers__WEBPACK_IMPORTED_MODULE_7__.getDimensionStyle)("padding", layoutColumnPadding) : (0,_helpers__WEBPACK_IMPORTED_MODULE_7__.getDimensionStyle)("padding", layoutRowPadding)),
       [tooglePostion === 'left' ? 'left' : 'right']: (0,_helpers__WEBPACK_IMPORTED_MODULE_7__.getResponsiveRangeVal)(position)
     },
     className: `${_constants__WEBPACK_IMPORTED_MODULE_4__.prefix}-product-companion ${layout}`
@@ -115,6 +120,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _custom_control_typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../custom-control/typography */ "./src/custom-control/typography.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../block.json */ "./src/blocks/product-companion/block.json");
 /* harmony import */ var _custom_control__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../custom-control */ "./src/custom-control/index.js");
+/* harmony import */ var _custom_control_dimension__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../custom-control/dimension */ "./src/custom-control/dimension.js");
+
 
 
 
@@ -135,7 +142,10 @@ const InspectorPanel = props => {
       layout,
       enableTextOnHover,
       textPosition,
-      enableCart
+      enableCart,
+      borderRadius,
+      layoutColumnPadding,
+      layoutRowPadding
     },
     setAttributes
   } = props;
@@ -143,21 +153,7 @@ const InspectorPanel = props => {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("General", "wc-booster"),
     initialOpen: false
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_8__.PanelColor, {
-    colorSettings: [{
-      value: bgColor,
-      onChange: bgColor => setAttributes({
-        bgColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.isUndefined)(bgColor) ? "" : bgColor
-      }),
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Background Color", "wc-booster")
-    }, {
-      value: color,
-      onChange: color => setAttributes({
-        color: (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.isUndefined)(color) ? "" : color
-      }),
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Color", "wc-booster")
-    }]
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Add to cart button", "wc-booster"),
     value: enableCart,
     onChange: enableCart => setAttributes({
@@ -170,11 +166,20 @@ const InspectorPanel = props => {
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControlOption, {
     value: "disable",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disable", "wc-booster")
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_8__.RadiusControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Border Radius", "wc-booster"),
+    value: borderRadius,
+    allowReset: false,
+    initialPosition: _block_json__WEBPACK_IMPORTED_MODULE_7__.attributes.borderRadius["default"],
+    defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_7__.attributes.borderRadius["default"],
+    onChange: borderRadius => setAttributes({
+      borderRadius
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Hover", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Text Position", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Label Position", "wc-booster"),
     value: textPosition,
     onChange: textPosition => setAttributes({
       textPosition
@@ -187,7 +192,7 @@ const InspectorPanel = props => {
     value: "right",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Right", "wc-booster")
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enable Disable Text on hover", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Label on hover", "wc-booster"),
     value: enableTextOnHover,
     onChange: enableTextOnHover => setAttributes({
       enableTextOnHover
@@ -212,6 +217,16 @@ const InspectorPanel = props => {
     },
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Top", "wc-booster"),
     beforeIcon: ""
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_responsive_range_wrapper__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_7__.attributes.position["default"],
+    value: position,
+    onChange: position => {
+      setAttributes({
+        position
+      });
+    },
+    label: tooglePostion == 'left' ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Left", "wc-booster") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Right", "wc-booster"),
+    beforeIcon: ""
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Layout", "wc-booster"),
     value: layout,
@@ -226,7 +241,7 @@ const InspectorPanel = props => {
     value: "row",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Horizontal", "wc-booster")
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Select Position", "wc-booster"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Display Position", "wc-booster"),
     value: tooglePostion,
     onChange: tooglePostion => setAttributes({
       tooglePostion
@@ -238,16 +253,40 @@ const InspectorPanel = props => {
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalToggleGroupControlOption, {
     value: "right",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Right", "wc-booster")
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_responsive_range_wrapper__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_7__.attributes.position["default"],
-    value: position,
-    onChange: position => {
-      setAttributes({
-        position
-      });
-    },
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Position", "wc-booster"),
-    beforeIcon: ""
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Spacing", "wc-booster"),
+    initialOpen: false
+  }, layout == "column" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Padding", "wc-booster"),
+    value: layoutColumnPadding,
+    defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_7__.attributes.layoutColumnPadding["default"],
+    onChange: layoutColumnPadding => setAttributes({
+      layoutColumnPadding
+    })
+  }), layout == "row" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_dimension__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Padding", "wc-booster"),
+    value: layoutRowPadding,
+    defaultValue: _block_json__WEBPACK_IMPORTED_MODULE_7__.attributes.layoutRowPadding["default"],
+    onChange: layoutRowPadding => setAttributes({
+      layoutRowPadding
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Color", "wc-booster"),
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_8__.PanelColor, {
+    colorSettings: [{
+      value: bgColor,
+      onChange: bgColor => setAttributes({
+        bgColor: (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.isUndefined)(bgColor) ? "" : bgColor
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Background Color", "wc-booster")
+    }, {
+      value: color,
+      onChange: color => setAttributes({
+        color: (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.isUndefined)(color) ? "" : color
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Color", "wc-booster")
+    }]
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InspectorPanel);
@@ -309,6 +348,53 @@ __webpack_require__.r(__webpack_exports__);
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.InnerBlocks.Content, null);
   }
 });
+
+/***/ }),
+
+/***/ "./src/components/input-group.js":
+/*!***************************************!*\
+  !*** ./src/components/input-group.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ "./src/constants.js");
+
+
+
+const InputGroup = ({
+  lists,
+  onChange,
+  type,
+  className = '',
+  updateLinkState,
+  isLinkActive,
+  property
+}) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+  className: className
+}, lists.map((value, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+  key: index
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+  type: type,
+  value: value,
+  onChange: value => {
+    onChange(index, value);
+  }
+}), property && property[index] && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, property[index]))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+  className: `${_constants__WEBPACK_IMPORTED_MODULE_2__.prefix}-link ${isLinkActive ? 'linked' : ''}`,
+  onClick: updateLinkState
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+  className: `dashicons ${isLinkActive ? 'dashicons-admin-links' : 'dashicons-editor-unlink'}`
+}))));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputGroup);
 
 /***/ }),
 
@@ -717,6 +803,171 @@ const backgroundPosition = [{
 }];
 const faSocialIcons = ["fa-facebook", "fa-facebook-f", "fa-facebook-official", "fa-facebook-square", "fa-flickr", "fa-google", "fa-google-plus", "fa-google-plus-circle", "fa-google-plus-official", "fa-google-plus-square", "fa-google-wallet", "fa-instagram", "fa-linkedin", "fa-linkedin-square", "fa-pinterest", "fa-pinterest-p", "fa-pinterest-square", "fa-twitter", "fa-twitter-square", "fa-qq", "fa-quora", "fa-reddit", "fa-reddit-alien", "fa-reddit-square", "fa-skype", "fa-snapchat", "fa-snapchat-ghost", "fa-stumbleupon", "fa-stumbleupon-circle", "fa-snapchat-square", "fa-telegram", "fa-tumblr", "fa-tumblr-square", "fa-vimeo", "fa-vimeo-square", "fa-vine", "fa-wechat", "fa-whatsapp", "fa-yahoo", "fa-youtube", "fa-youtube-play", "fa-youtube-square"];
 const faIcons = ["fa-500px", "fa-address-book", "fa-address-book-o", "fa-address-card", "fa-address-card-o", "fa-adjust", "fa-adn", "fa-align-center", "fa-align-justify", "fa-align-left", "fa-align-right", "fa-amazon", "fa-ambulance", "fa-american-sign-language-interpreting", "fa-anchor", "fa-android", "fa-angellist", "fa-angle-double-down", "fa-angle-double-left", "fa-angle-double-right", "fa-angle-double-up", "fa-angle-down", "fa-angle-left", "fa-angle-right", "fa-angle-up", "fa-apple", "fa-archive", "fa-area-chart", "fa-arrow-circle-down", "fa-arrow-circle-left", "fa-arrow-circle-o-down", "fa-arrow-circle-o-left", "fa-arrow-circle-o-right", "fa-arrow-circle-o-up", "fa-arrow-circle-right", "fa-arrow-circle-up", "fa-arrow-down", "fa-arrow-left", "fa-arrow-right", "fa-arrow-up", "fa-arrows", "fa-arrows-alt", "fa-arrows-h", "fa-arrows-v", "fa-asl-interpreting", "fa-assistive-listening-systems", "fa-asterisk", "fa-at", "fa-audio-description", "fa-automobile", "fa-backward", "fa-balance-scale", "fa-ban", "fa-bandcamp", "fa-bank", "fa-bar-chart", "fa-bar-chart-o", "fa-barcode", "fa-bars", "fa-bath", "fa-bathtub", "fa-battery", "fa-battery-0", "fa-battery-1", "fa-battery-2", "fa-battery-3", "fa-battery-4", "fa-battery-empty", "fa-battery-full", "fa-battery-half", "fa-battery-quarter", "fa-battery-three-quarters", "fa-bed", "fa-beer", "fa-behance", "fa-behance-square", "fa-bell", "fa-bell-o", "fa-bell-slash", "fa-bell-slash-o", "fa-bicycle", "fa-binoculars", "fa-birthday-cake", "fa-bitbucket", "fa-bitbucket-square", "fa-bitcoin", "fa-black-tie", "fa-blind", "fa-bluetooth", "fa-bluetooth-b", "fa-bold", "fa-bolt", "fa-bomb", "fa-book", "fa-bookmark", "fa-bookmark-o", "fa-braille", "fa-briefcase", "fa-btc", "fa-bug", "fa-building", "fa-building-o", "fa-bullhorn", "fa-bullseye", "fa-bus", "fa-buysellads", "fa-cab", "fa-calculator", "fa-calendar", "fa-calendar-check-o", "fa-calendar-minus-o", "fa-calendar-o", "fa-calendar-plus-o", "fa-calendar-times-o", "fa-camera", "fa-camera-retro", "fa-car", "fa-caret-down", "fa-caret-left", "fa-caret-right", "fa-caret-square-o-down", "fa-caret-square-o-left", "fa-caret-square-o-right", "fa-caret-square-o-up", "fa-caret-up", "fa-cart-arrow-down", "fa-cart-plus", "fa-cc", "fa-cc-amex", "fa-cc-diners-club", "fa-cc-discover", "fa-cc-jcb", "fa-cc-mastercard", "fa-cc-paypal", "fa-cc-stripe", "fa-cc-visa", "fa-certificate", "fa-chain", "fa-chain-broken", "fa-check", "fa-check-circle", "fa-check-circle-o", "fa-check-square", "fa-check-square-o", "fa-chevron-circle-down", "fa-chevron-circle-left", "fa-chevron-circle-right", "fa-chevron-circle-up", "fa-chevron-down", "fa-chevron-left", "fa-chevron-right", "fa-chevron-up", "fa-child", "fa-chrome", "fa-circle", "fa-circle-o", "fa-circle-o-notch", "fa-circle-thin", "fa-clipboard", "fa-clock-o", "fa-clone", "fa-close", "fa-cloud", "fa-cloud-download", "fa-cloud-upload", "fa-cny", "fa-code", "fa-code-fork", "fa-codepen", "fa-codiepie", "fa-coffee", "fa-cog", "fa-cogs", "fa-columns", "fa-comment", "fa-comment-o", "fa-commenting", "fa-commenting-o", "fa-comments", "fa-comments-o", "fa-compass", "fa-compress", "fa-connectdevelop", "fa-contao", "fa-copy", "fa-copyright", "fa-creative-commons", "fa-credit-card", "fa-credit-card-alt", "fa-crop", "fa-crosshairs", "fa-css3", "fa-cube", "fa-cubes", "fa-cut", "fa-cutlery", "fa-dashboard", "fa-dashcube", "fa-database", "fa-deaf", "fa-deafness", "fa-dedent", "fa-delicious", "fa-desktop", "fa-deviantart", "fa-diamond", "fa-digg", "fa-dollar", "fa-dot-circle-o", "fa-download", "fa-dribbble", "fa-drivers-license", "fa-drivers-license-o", "fa-dropbox", "fa-drupal", "fa-edge", "fa-edit", "fa-eercast", "fa-eject", "fa-ellipsis-h", "fa-ellipsis-v", "fa-empire", "fa-envelope", "fa-envelope-o", "fa-envelope-open", "fa-envelope-open-o", "fa-envelope-square", "fa-envira", "fa-eraser", "fa-etsy", "fa-eur", "fa-euro", "fa-exchange", "fa-exclamation", "fa-exclamation-circle", "fa-exclamation-triangle", "fa-expand", "fa-expeditedssl", "fa-external-link", "fa-external-link-square", "fa-eye", "fa-eye-slash", "fa-eyedropper", "fa-fa", "fa-facebook", "fa-facebook-f", "fa-facebook-official", "fa-facebook-square", "fa-fast-backward", "fa-fast-forward", "fa-fax", "fa-feed", "fa-female", "fa-fighter-jet", "fa-file", "fa-file-archive-o", "fa-file-audio-o", "fa-file-code-o", "fa-file-excel-o", "fa-file-image-o", "fa-file-movie-o", "fa-file-o", "fa-file-pdf-o", "fa-file-photo-o", "fa-file-picture-o", "fa-file-powerpoint-o", "fa-file-sound-o", "fa-file-text", "fa-file-text-o", "fa-file-video-o", "fa-file-word-o", "fa-file-zip-o", "fa-files-o", "fa-film", "fa-filter", "fa-fire", "fa-fire-extinguisher", "fa-firefox", "fa-first-order", "fa-flag", "fa-flag-checkered", "fa-flag-o", "fa-flash", "fa-flask", "fa-flickr", "fa-floppy-o", "fa-folder", "fa-folder-o", "fa-folder-open", "fa-folder-open-o", "fa-font", "fa-font-awesome", "fa-fonticons", "fa-fort-awesome", "fa-forumbee", "fa-forward", "fa-foursquare", "fa-free-code-camp", "fa-frown-o", "fa-futbol-o", "fa-gamepad", "fa-gavel", "fa-gbp", "fa-ge", "fa-gear", "fa-gears", "fa-genderless", "fa-get-pocket", "fa-gg", "fa-gg-circle", "fa-gift", "fa-git", "fa-git-square", "fa-github", "fa-github-alt", "fa-github-square", "fa-gitlab", "fa-gittip", "fa-glass", "fa-glide", "fa-glide-g", "fa-globe", "fa-google", "fa-google-plus", "fa-google-plus-circle", "fa-google-plus-official", "fa-google-plus-square", "fa-google-wallet", "fa-graduation-cap", "fa-gratipay", "fa-grav", "fa-group", "fa-h-square", "fa-hacker-news", "fa-hand-grab-o", "fa-hand-lizard-o", "fa-hand-o-down", "fa-hand-o-left", "fa-hand-o-right", "fa-hand-o-up", "fa-hand-paper-o", "fa-hand-peace-o", "fa-hand-pointer-o", "fa-hand-rock-o", "fa-hand-scissors-o", "fa-hand-spock-o", "fa-hand-stop-o", "fa-handshake-o", "fa-hard-of-hearing", "fa-hashtag", "fa-hdd-o", "fa-header", "fa-headphones", "fa-heart", "fa-heart-o", "fa-heartbeat", "fa-history", "fa-home", "fa-hospital-o", "fa-hotel", "fa-hourglass", "fa-hourglass-1", "fa-hourglass-2", "fa-hourglass-3", "fa-hourglass-end", "fa-hourglass-half", "fa-hourglass-o", "fa-hourglass-start", "fa-houzz", "fa-html5", "fa-i-cursor", "fa-id-badge", "fa-id-card", "fa-id-card-o", "fa-ils", "fa-image", "fa-imdb", "fa-inbox", "fa-indent", "fa-industry", "fa-info", "fa-info-circle", "fa-inr", "fa-instagram", "fa-institution", "fa-internet-explorer", "fa-intersex", "fa-ioxhost", "fa-italic", "fa-joomla", "fa-jpy", "fa-jsfiddle", "fa-key", "fa-keyboard-o", "fa-krw", "fa-language", "fa-laptop", "fa-lastfm", "fa-lastfm-square", "fa-leaf", "fa-leanpub", "fa-legal", "fa-lemon-o", "fa-level-down", "fa-level-up", "fa-life-bouy", "fa-life-buoy", "fa-life-ring", "fa-life-saver", "fa-lightbulb-o", "fa-line-chart", "fa-link", "fa-linkedin", "fa-linkedin-square", "fa-linode", "fa-linux", "fa-list", "fa-list-alt", "fa-list-ol", "fa-list-ul", "fa-location-arrow", "fa-lock", "fa-long-arrow-down", "fa-long-arrow-left", "fa-long-arrow-right", "fa-long-arrow-up", "fa-low-vision", "fa-magic", "fa-magnet", "fa-mail-forward", "fa-mail-reply", "fa-mail-reply-all", "fa-male", "fa-map", "fa-map-marker", "fa-map-o", "fa-map-pin", "fa-map-signs", "fa-mars", "fa-mars-double", "fa-mars-stroke", "fa-mars-stroke-h", "fa-mars-stroke-v", "fa-maxcdn", "fa-meanpath", "fa-medium", "fa-medkit", "fa-meetup", "fa-meh-o", "fa-mercury", "fa-microchip", "fa-microphone", "fa-microphone-slash", "fa-minus", "fa-minus-circle", "fa-minus-square", "fa-minus-square-o", "fa-mixcloud", "fa-mobile", "fa-mobile-phone", "fa-modx", "fa-money", "fa-moon-o", "fa-mortar-board", "fa-motorcycle", "fa-mouse-pointer", "fa-music", "fa-navicon", "fa-neuter", "fa-newspaper-o", "fa-object-group", "fa-object-ungroup", "fa-odnoklassniki", "fa-odnoklassniki-square", "fa-opencart", "fa-openid", "fa-opera", "fa-optin-monster", "fa-outdent", "fa-pagelines", "fa-paint-brush", "fa-paper-plane", "fa-paper-plane-o", "fa-paperclip", "fa-paragraph", "fa-paste", "fa-pause", "fa-pause-circle", "fa-pause-circle-o", "fa-paw", "fa-paypal", "fa-pencil", "fa-pencil-square", "fa-pencil-square-o", "fa-percent", "fa-phone", "fa-phone-square", "fa-photo", "fa-picture-o", "fa-pie-chart", "fa-pied-piper", "fa-pied-piper-alt", "fa-pied-piper-pp", "fa-pinterest", "fa-pinterest-p", "fa-pinterest-square", "fa-plane", "fa-play", "fa-play-circle", "fa-play-circle-o", "fa-plug", "fa-plus", "fa-plus-circle", "fa-plus-square", "fa-plus-square-o", "fa-podcast", "fa-power-off", "fa-print", "fa-product-hunt", "fa-puzzle-piece", "fa-qq", "fa-qrcode", "fa-question", "fa-question-circle", "fa-question-circle-o", "fa-quora", "fa-quote-left", "fa-quote-right", "fa-ra", "fa-random", "fa-ravelry", "fa-rebel", "fa-recycle", "fa-reddit", "fa-reddit-alien", "fa-reddit-square", "fa-refresh", "fa-registered", "fa-remove", "fa-renren", "fa-reorder", "fa-repeat", "fa-reply", "fa-reply-all", "fa-resistance", "fa-retweet", "fa-rmb", "fa-road", "fa-rocket", "fa-rotate-left", "fa-rotate-right", "fa-rouble", "fa-rss", "fa-rss-square", "fa-rub", "fa-ruble", "fa-rupee", "fa-s15", "fa-safari", "fa-save", "fa-scissors", "fa-scribd", "fa-search", "fa-search-minus", "fa-search-plus", "fa-sellsy", "fa-send", "fa-send-o", "fa-server", "fa-share", "fa-share-alt", "fa-share-alt-square", "fa-share-square", "fa-share-square-o", "fa-shekel", "fa-sheqel", "fa-shield", "fa-ship", "fa-shirtsinbulk", "fa-shopping-bag", "fa-shopping-basket", "fa-shopping-cart", "fa-shower", "fa-sign-in", "fa-sign-language", "fa-sign-out", "fa-signal", "fa-signing", "fa-simplybuilt", "fa-sitemap", "fa-skyatlas", "fa-skype", "fa-slack", "fa-sliders", "fa-slideshare", "fa-smile-o", "fa-snapchat", "fa-snapchat-ghost", "fa-snapchat-square", "fa-snowflake-o", "fa-soccer-ball-o", "fa-sort", "fa-sort-alpha-asc", "fa-sort-alpha-desc", "fa-sort-amount-asc", "fa-sort-amount-desc", "fa-sort-asc", "fa-sort-desc", "fa-sort-down", "fa-sort-numeric-asc", "fa-sort-numeric-desc", "fa-sort-up", "fa-soundcloud", "fa-space-shuttle", "fa-spinner", "fa-spoon", "fa-spotify", "fa-square", "fa-square-o", "fa-stack-exchange", "fa-stack-overflow", "fa-star", "fa-star-half", "fa-star-half-empty", "fa-star-half-full", "fa-star-half-o", "fa-star-o", "fa-steam", "fa-steam-square", "fa-step-backward", "fa-step-forward", "fa-stethoscope", "fa-sticky-note", "fa-sticky-note-o", "fa-stop", "fa-stop-circle", "fa-stop-circle-o", "fa-street-view", "fa-strikethrough", "fa-stumbleupon", "fa-stumbleupon-circle", "fa-subscript", "fa-subway", "fa-suitcase", "fa-sun-o", "fa-superpowers", "fa-superscript", "fa-support", "fa-table", "fa-tablet", "fa-tachometer", "fa-tag", "fa-tags", "fa-tasks", "fa-taxi", "fa-telegram", "fa-television", "fa-tencent-weibo", "fa-terminal", "fa-text-height", "fa-text-width", "fa-th", "fa-th-large", "fa-th-list", "fa-themeisle", "fa-thermometer", "fa-thermometer-0", "fa-thermometer-1", "fa-thermometer-2", "fa-thermometer-3", "fa-thermometer-4", "fa-thermometer-empty", "fa-thermometer-full", "fa-thermometer-half", "fa-thermometer-quarter", "fa-thermometer-three-quarters", "fa-thumb-tack", "fa-thumbs-down", "fa-thumbs-o-down", "fa-thumbs-o-up", "fa-thumbs-up", "fa-ticket", "fa-times", "fa-times-circle", "fa-times-circle-o", "fa-times-rectangle", "fa-times-rectangle-o", "fa-tint", "fa-toggle-down", "fa-toggle-left", "fa-toggle-off", "fa-toggle-on", "fa-toggle-right", "fa-toggle-up", "fa-trademark", "fa-train", "fa-transgender", "fa-transgender-alt", "fa-trash", "fa-trash-o", "fa-tree", "fa-trello", "fa-tripadvisor", "fa-trophy", "fa-truck", "fa-try", "fa-tty", "fa-tumblr", "fa-tumblr-square", "fa-turkish-lira", "fa-tv", "fa-twitch", "fa-twitter", "fa-twitter-square", "fa-umbrella", "fa-underline", "fa-undo", "fa-universal-access", "fa-university", "fa-unlink", "fa-unlock", "fa-unlock-alt", "fa-unsorted", "fa-upload", "fa-usb", "fa-usd", "fa-user", "fa-user-circle", "fa-user-circle-o", "fa-user-md", "fa-user-o", "fa-user-plus", "fa-user-secret", "fa-user-times", "fa-users", "fa-vcard", "fa-vcard-o", "fa-venus", "fa-venus-double", "fa-venus-mars", "fa-viacoin", "fa-viadeo", "fa-viadeo-square", "fa-video-camera", "fa-vimeo", "fa-vimeo-square", "fa-vine", "fa-vk", "fa-volume-control-phone", "fa-volume-down", "fa-volume-off", "fa-volume-up", "fa-warning", "fa-wechat", "fa-weibo", "fa-weixin", "fa-whatsapp", "fa-wheelchair", "fa-wheelchair-alt", "fa-wifi", "fa-wikipedia-w", "fa-window-close", "fa-window-close-o", "fa-window-maximize", "fa-window-minimize", "fa-window-restore", "fa-windows", "fa-won", "fa-wordpress", "fa-wpbeginner", "fa-wpexplorer", "fa-wpforms", "fa-wrench", "fa-xing", "fa-xing-square", "fa-y-combinator", "fa-y-combinator-square", "fa-yahoo", "fa-yc", "fa-yc-square", "fa-yelp", "fa-yen", "fa-yoast", "fa-youtube", "fa-youtube-play", "fa-youtube-square"];
+
+/***/ }),
+
+/***/ "./src/custom-control/dimension.js":
+/*!*****************************************!*\
+  !*** ./src/custom-control/dimension.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_responsive_view_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/responsive-view-icons */ "./src/components/responsive-view-icons.js");
+/* harmony import */ var _components_size_unit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/size-unit */ "./src/components/size-unit.js");
+/* harmony import */ var _components_input_group__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/input-group */ "./src/components/input-group.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../helpers */ "./src/helpers/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../constants */ "./src/constants.js");
+
+
+
+
+/* Custom components */
+
+
+
+
+
+/* Others */
+
+const DimensionControl = props => {
+  const {
+    label,
+    onChange = () => {}
+  } = props;
+  const getData = () => {
+    const {
+      value = {}
+    } = props;
+    const {
+      values,
+      ...defaultDimensionValueRest
+    } = _constants__WEBPACK_IMPORTED_MODULE_7__.defaultDimensionValue;
+    const data = {
+      ...defaultDimensionValueRest,
+      ...value
+    };
+    const {
+      properties,
+      responsiveViews
+    } = data;
+    return {
+      ...data,
+      values: value.values ? getViewData(properties, data.values, responsiveViews) : getViewData(properties, values, responsiveViews)
+    };
+  };
+  const getViewData = (properties, responsiveValues, responsiveViews) => {
+    let viewData = {};
+    responsiveViews.forEach((v, i) => {
+      let value = responsiveValues[v];
+      let currentValue = properties.map((p, i) => value && value.length - 1 >= i ? value[i] : 0);
+      viewData = {
+        ...viewData,
+        [v]: currentValue
+      };
+    });
+    return viewData;
+  };
+  const handleChange = (name, data) => {
+    const oldData = getData();
+    const {
+      isLinkActive,
+      values
+    } = oldData;
+    let newData = {};
+    if ("updateValues" === name) {
+      let {
+        index,
+        value
+      } = data;
+      newData = (0,_helpers__WEBPACK_IMPORTED_MODULE_6__.merge)({}, oldData, {
+        values: {
+          [activeView]: isLinkActive ? values[activeView].map(() => parseInt(value)) : values[activeView].map((v, i) => index === i ? parseInt(value) : v)
+        }
+      });
+    } else if ("updateLink" === name) {
+      newData = (0,_helpers__WEBPACK_IMPORTED_MODULE_6__.merge)({}, oldData, {
+        isLinkActive: !isLinkActive
+      });
+    } else if ("updateUnit" === name) {
+      newData = (0,_helpers__WEBPACK_IMPORTED_MODULE_6__.merge)({}, oldData, {
+        activeUnit: data
+      });
+    }
+    onChange(newData);
+  };
+  const reset = () => {
+    const {
+      defaultValue
+    } = props;
+    defaultValue && onChange(defaultValue);
+  };
+  const {
+    responsiveViews,
+    isLinkActive,
+    activeUnit,
+    units,
+    values,
+    properties
+  } = getData();
+  const activeView = (0,_helpers__WEBPACK_IMPORTED_MODULE_6__.getPreviewDevice)();
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `${_constants__WEBPACK_IMPORTED_MODULE_7__.prefix}-dimension-input`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `${_constants__WEBPACK_IMPORTED_MODULE_7__.prefix}-label-section`,
+    style: {
+      display: "flex"
+    }
+  }, label && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    // The inline styling is used here instead of the CSS file because
+    // This styling is only required in this specific case.
+    style: {
+      maxWidth: "45%"
+    },
+    className: "components-base-control__label"
+  }, label), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_responsive_view_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    responsiveViews: responsiveViews,
+    activeView: activeView,
+    onClick: view => {
+      onChange(getData());
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_size_unit__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    units: units,
+    activeUnit: activeUnit,
+    onClick: unit => handleChange("updateUnit", unit)
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `${_constants__WEBPACK_IMPORTED_MODULE_7__.prefix}-controller`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `${_constants__WEBPACK_IMPORTED_MODULE_7__.prefix}-lists`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_input_group__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    property: properties,
+    isLinkActive: isLinkActive,
+    updateLinkState: () => handleChange("updateLink"),
+    type: "number",
+    lists: values[activeView],
+    onChange: (i, v) => handleChange("updateValues", {
+      index: i,
+      value: v
+    })
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `${_constants__WEBPACK_IMPORTED_MODULE_7__.prefix}-btn-reset-wrapper`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    onClick: reset,
+    className: `is-button is-default is-small`
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Reset", "wc-booster"))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DimensionControl);
+(0,_helpers__WEBPACK_IMPORTED_MODULE_6__.globalize)("DimensionControl", DimensionControl);
 
 /***/ }),
 
@@ -1502,7 +1753,9 @@ const getQuickViewStyle = attributes => {
     left: getResponsiveRangeVal(attributes.left),
     backgroundColor: attributes.bgColor,
     color: attributes.color,
-    ...getTypoStyle(attributes.textTypo)
+    ...getTypoStyle(attributes.textTypo),
+    ...getDimensionStyle("padding", attributes.padding),
+    borderRadius: attributes.borderRadius + "%"
   };
   return style;
 };
@@ -8405,7 +8658,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wc-booster/product-companion","version":"1.3","title":"Product Companion","category":"wc-booster","description":"Provides key product interactions like Quick View, Wishlist and add to cart button, enhancing the shopping experience with streamlined access to essential features.","attributes":{"block_id":{"type":"string"},"enableQuickView":{"type":"boolean","default":true},"enableWishList":{"type":"boolean","default":true},"enableCart":{"type":"string","default":"enable"},"bgColor":{"type":"string","default":"#fff"},"color":{"type":"string","default":"#000"},"tooglePostion":{"type":"string","default":"left"},"layout":{"type":"string","default":"column"},"enableTextOnHover":{"type":"string","default":"visible"},"textPosition":{"type":"string","default":"right"},"position":{"type":"object","default":{"activeUnit":"px","units":["%","px","em"],"range":{"min":0,"max":500},"values":{"desktop":10,"tablet":10,"mobile":10}}},"positionTop":{"type":"object","default":{"activeUnit":"px","units":["%","px","em"],"range":{"min":-100,"max":500},"values":{"desktop":40,"tablet":40,"mobile":40}}}},"usesContext":["postId"],"textdomain":"wc-booster","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wc-booster/product-companion","version":"1.3","title":"Product Companion","category":"wc-booster","description":"Provides key product interactions like Quick View, Wishlist and add to cart button, enhancing the shopping experience with streamlined access to essential features.","attributes":{"block_id":{"type":"string"},"enableQuickView":{"type":"boolean","default":true},"enableWishList":{"type":"boolean","default":true},"enableCart":{"type":"string","default":"enable"},"bgColor":{"type":"string","default":"#fff"},"color":{"type":"string","default":"#000"},"tooglePostion":{"type":"string","default":"left"},"layout":{"type":"string","default":"column"},"enableTextOnHover":{"type":"string","default":"visible"},"textPosition":{"type":"string","default":"right"},"position":{"type":"object","default":{"activeUnit":"px","units":["%","px","em"],"range":{"min":0,"max":500},"values":{"desktop":10,"tablet":10,"mobile":10}}},"positionTop":{"type":"object","default":{"activeUnit":"px","units":["%","px","em"],"range":{"min":-100,"max":500},"values":{"desktop":40,"tablet":40,"mobile":40}}},"borderRadius":{"type":"number","default":0},"layoutColumnPadding":{"type":"object","default":{"activeUnit":"px","isLinkActive":true,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px","rem"],"values":{"desktop":[9,10,9,10],"tablet":[9,10,9,10],"mobile":[9,10,9,10]}}},"layoutRowPadding":{"type":"object","default":{"activeUnit":"px","isLinkActive":true,"properties":["top","right","bottom","left"],"responsiveViews":["desktop","tablet","mobile"],"units":["px","rem"],"values":{"desktop":[8,13,5,13],"tablet":[8,13,5,13],"mobile":[8,13,5,13]}}}},"usesContext":["postId"],"ancestor":["woocommerce/product-template"],"textdomain":"wc-booster","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

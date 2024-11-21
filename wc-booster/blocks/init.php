@@ -208,6 +208,33 @@ if( !class_exists( 'WC_Booster_Blocks_Init' ) ){
             return $class;
         }
 
+        public function get_product_stock_data($object, $field_name, $request) {
+            // Get the product ID and WooCommerce product object
+            $product_id = $object['id'];
+            $product = wc_get_product($product_id);
+
+            // Check if the product object is valid
+            if (!$product) {
+                return null;
+            }
+
+            // Retrieve the data
+            $manage_stock = $product->get_manage_stock();
+            $total_stock  = $product->get_stock_quantity();
+            $sold_stock   = get_post_meta($product_id, 'total_sales', true);
+            $sold_stock   = $sold_stock ? intval($sold_stock) : 0;
+
+            // Package the data into an associative array
+            $data = [
+                'manage_stock' => $manage_stock,
+                'total_stock' => $total_stock,
+                'sold_stock' => $sold_stock,
+            ];
+
+            return $data;
+        }
+
+
         public function get_product_category_image( $object, $field_name, $request ){
 
             $cat_id = $object['id'];
@@ -293,6 +320,16 @@ if( !class_exists( 'WC_Booster_Blocks_Init' ) ){
                     'schema' => null,
                 ]
             );
+            
+            register_rest_field(
+                'product',
+                'wc_booster_product_stock_data',
+                [
+                    'get_callback' => [ $this, 'get_product_stock_data' ],
+                    'update_callback' => null,
+                    'schema' => null,
+                ]
+            );
 
             register_rest_field(
                 'user',
@@ -303,6 +340,7 @@ if( !class_exists( 'WC_Booster_Blocks_Init' ) ){
                     'schema' => null,
                 ]
             );
+
         }
 
         /**

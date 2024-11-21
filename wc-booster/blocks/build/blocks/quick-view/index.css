@@ -18,4 +18,10 @@
   align-items: center;
 }
 
+.components-base-control__label {
+  text-transform: inherit !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
 /*# sourceMappingURL=index.css.map*/

@@ -7,7 +7,7 @@
   z-index: 99;
 }
 .wc-booster-wishlist-button-wrapper .wc-booster-wishlist-button {
-  padding: 5px;
+  padding: 8px !important;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -17,7 +17,7 @@
 .wc-booster-wishlist-button-wrapper .wc-booster-wishlist-button .wishlist-text,
 .wc-booster-wishlist-button-wrapper .wc-booster-wishlist-button .wishlist-text-left {
   position: absolute;
-  top: 1px;
+  top: 8px;
   right: -117px;
   visibility: hidden;
   opacity: 0;

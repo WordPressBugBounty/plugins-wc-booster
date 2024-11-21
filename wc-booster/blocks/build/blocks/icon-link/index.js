@@ -213,23 +213,6 @@ const InspectorPanel = props => {
     }),
     beforeIcon: ""
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Color", "wc-booster"),
-    initialOpen: false
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_1__.PanelColor, {
-    colorSettings: [{
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Icon Color"),
-      value: iconColor,
-      onChange: newValue => setAttributes({
-        iconColor: newValue
-      })
-    }, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Text Color"),
-      value: textColor,
-      onChange: newValue => setAttributes({
-        textColor: newValue
-      })
-    }]
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Typography", "wc-booster"),
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control_typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -249,6 +232,23 @@ const InspectorPanel = props => {
     onChange: titleMargin => setAttributes({
       titleMargin
     })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Color", "wc-booster"),
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_custom_control__WEBPACK_IMPORTED_MODULE_1__.PanelColor, {
+    colorSettings: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Icon Color"),
+      value: iconColor,
+      onChange: newValue => setAttributes({
+        iconColor: newValue
+      })
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Text Color"),
+      value: textColor,
+      onChange: newValue => setAttributes({
+        textColor: newValue
+      })
+    }]
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InspectorPanel);
@@ -2039,7 +2039,9 @@ const getQuickViewStyle = attributes => {
     left: getResponsiveRangeVal(attributes.left),
     backgroundColor: attributes.bgColor,
     color: attributes.color,
-    ...getTypoStyle(attributes.textTypo)
+    ...getTypoStyle(attributes.textTypo),
+    ...getDimensionStyle("padding", attributes.padding),
+    borderRadius: attributes.borderRadius + "%"
   };
   return style;
 };

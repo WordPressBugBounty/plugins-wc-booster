@@ -10,7 +10,7 @@
 .wc-booster-quick-view .quick-view-text,
 .wc-booster-quick-view .quick-view-text-left {
   position: absolute;
-  top: 6px;
+  top: 14px;
   right: -96px;
   visibility: hidden;
   opacity: 0;

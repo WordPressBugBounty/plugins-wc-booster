@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Booster - Minimalist product addon for WooCommmerce "
-"plugin 2.5\n"
+"plugin 2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-booster\n"
-"POT-Creation-Date: 2024-10-28 11:14:22+00:00\n"
+"POT-Creation-Date: 2024-11-18 04:11:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,11 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: blocks/class/product-companion.php:194
+#: blocks/class/countdown.php:169
+msgid "Sale Expired!!!"
+msgstr ""
+
+#: blocks/class/product-companion.php:212
 msgid "Add to cart"
 msgstr ""
 
@@ -32,8 +36,12 @@ msgstr ""
 msgid "No variations available"
 msgstr ""
 
-#: blocks/class/quick-view.php:207
+#: blocks/class/quick-view.php:223
 msgid "Quick View"
+msgstr ""
+
+#: blocks/class/stock-progress-bar.php:255
+msgid "Sold: %d / %d"
 msgstr ""
 
 #: blocks/class/wish-list-button.php:240

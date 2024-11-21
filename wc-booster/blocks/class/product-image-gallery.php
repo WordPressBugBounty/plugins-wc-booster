@@ -133,7 +133,7 @@ if( !class_exists( 'WC_Booster_Product_Image_Gallery_Block' ) ){
             );
         }
 
-        public function get_main_image_html( $image_id, $index, $alt = '', $variation_id ) {
+        public function get_main_image_html( $image_id, $index, $variation_id, $alt = '' ) {
             $image_url = wp_get_attachment_image_url( $image_id, 'large' );
             if ( ! $image_url ) {
                 return '';
@@ -203,7 +203,7 @@ if( !class_exists( 'WC_Booster_Product_Image_Gallery_Block' ) ){
                     endif;
 
                     if ( $featured_image_id ) {
-                        echo $this->get_main_image_html( $featured_image_id, $thumb_index, $featured_image_alt, $featured_image_id );
+                        echo $this->get_main_image_html( $featured_image_id, $thumb_index, $featured_image_id, $featured_image_alt );
                         $thumb_index++;
                     }
 
@@ -220,7 +220,7 @@ if( !class_exists( 'WC_Booster_Product_Image_Gallery_Block' ) ){
                         foreach ( $available_variations as $index => $variation ) : 
                             $variation_image_id = $variation['image_id'];
                             if ( $variation_image_id ) :
-                                echo $this->get_main_image_html( $variation_image_id, $main_img_index, $variation['image']['alt'], $variation['variation_id'] );
+                                echo $this->get_main_image_html( $variation_image_id, $main_img_index, $variation['variation_id'], $variation['image']['alt'] );
                             $main_img_index++;
                                 break;
                             endif;
@@ -228,12 +228,12 @@ if( !class_exists( 'WC_Booster_Product_Image_Gallery_Block' ) ){
                     endif;
 
                     if ( $featured_image_id ) {
-                        echo $this->get_main_image_html( $featured_image_id, $main_img_index, $featured_image_alt, $featured_image_id );
+                        echo $this->get_main_image_html( $featured_image_id, $main_img_index, $featured_image_id, $featured_image_alt );
                         $main_img_index++;
                     }
 
                     foreach ( $product_gallery_ids as $index => $gallery_id ) :
-                        echo $this->get_main_image_html( $gallery_id, $main_img_index + $index, get_post_meta( $gallery_id, '_wp_attachment_image_alt', true ), $gallery_id );
+                        echo $this->get_main_image_html( $gallery_id, $main_img_index + $index, $gallery_id, get_post_meta( $gallery_id, '_wp_attachment_image_alt', true ) );
                     endforeach; 
                     ?>
                 </div>
