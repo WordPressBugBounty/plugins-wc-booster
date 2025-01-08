@@ -27,7 +27,7 @@
 			<span class="wc-booster-custom-fields-image-btn-text"><?php echo esc_html( $upload_btn_text ); ?></span>
 		</button>
 
-		<button id="<?php echo esc_attr( $d[ 'delete' ] ); ?>" class="wc-booster-custom-fields-image-delete button <?php echo empty( $value ) ? esc_attr( 'hidden' ) : ''; ?>">
+		<button id="<?php // echo esc_attr( $d[ 'delete' ] ); ?>" class="wc-booster-custom-fields-image-delete button <?php echo empty( $value ) ? esc_attr( 'hidden' ) : ''; ?>">
 			<?php echo esc_html__( 'Delete Image', 'wc-booster' ); ?>
 		</button>
 	</div>

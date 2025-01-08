@@ -163,7 +163,7 @@ const Edit = props => {
     try {
       const defaultIds = data.slice(0, 5);
       const value = defaultIds;
-      selectedCategories = cat_id ? JSON.parse(cat_id) : value;
+      selectedCategories = cat_id ? JSON.parse(cat_id.replaceAll('u0022', '"')) : value;
     } catch (errror) {
       console.error("page id is Not a JSON response.");
     }

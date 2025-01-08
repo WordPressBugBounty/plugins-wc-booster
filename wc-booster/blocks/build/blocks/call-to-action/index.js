@@ -104,6 +104,9 @@ const Edit = props => {
   }, [["core/button", {
     text: "Buy Now"
   }]]]];
+  let adjustedHeading = heading.replaceAll('u0022', '"');
+  adjustedHeading = adjustedHeading.replaceAll('u003c', '<');
+  adjustedHeading = adjustedHeading.replaceAll('u003e', '>');
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.AlignmentToolbar, {
     value: alignment,
     onChange: alignment => setAttributes({
@@ -122,7 +125,7 @@ const Edit = props => {
     className: `${_constants__WEBPACK_IMPORTED_MODULE_4__.prefix}-align-${alignment} ${_constants__WEBPACK_IMPORTED_MODULE_4__.prefix}-cta-content`
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.RichText, {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Heading...", "wc-booster"),
-    value: heading,
+    value: adjustedHeading,
     tagName: "h2",
     onChange: heading => setAttributes({
       heading

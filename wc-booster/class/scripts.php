@@ -25,7 +25,7 @@ if( !class_exists( 'WC_Booster_Script' ) ){
 			);
 
 			$this->config = wp_parse_args( $args, $defaults );
-			
+
 			add_action( $this->config[ 'hook' ], array( $this, 'enqueue' ) );
 		}
 
@@ -33,7 +33,12 @@ if( !class_exists( 'WC_Booster_Script' ) ){
 			$this->scripts = $scripts;
 		}
 
-		public function enqueue() {
+		public function enqueue( $hook ) {
+
+			if( isset( $this->config[ 'condition_hook' ] ) && $hook != $this->config[ 'condition_hook' ] ){
+				return;
+			}
+			
 			foreach( $this->scripts as $script ) {
 
 				if( isset( $script[ 'handle' ] ) ) {

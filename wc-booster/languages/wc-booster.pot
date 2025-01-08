@@ -1,15 +1,15 @@
-# Copyright (C) 2024 Eagle Vision IT
+# Copyright (C) 2025 Eagle Vision IT
 # This file is distributed under the same license as the WC Booster - Minimalist product addon for WooCommmerce plugin package.
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Booster - Minimalist product addon for WooCommmerce "
-"plugin 2.6\n"
+"plugin 2.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-booster\n"
-"POT-Creation-Date: 2024-11-18 04:11:53+00:00\n"
+"POT-Creation-Date: 2025-01-08 10:15:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -182,6 +182,90 @@ msgstr ""
 
 #: custom-fields/templates/icon-selector-modal.php:6
 msgid "Search for an icon"
+msgstr ""
+
+#: demo-importer/admin-page.php:26 demo-importer/admin-page.php:27
+msgid "Demo Importer"
+msgstr ""
+
+#: demo-importer/ajax.php:47
+msgid "Fetched demo successfully."
+msgstr ""
+
+#: demo-importer/ajax.php:74 demo-importer/ajax.php:293
+msgid "You are not allowed perform this action."
+msgstr ""
+
+#: demo-importer/ajax.php:88
+msgid "Theme installed successfully."
+msgstr ""
+
+#: demo-importer/ajax.php:103 demo-importer/ajax.php:107
+msgid "Theme installation failed."
+msgstr ""
+
+#: demo-importer/ajax.php:119
+msgid "Posts imported successfully."
+msgstr ""
+
+#: demo-importer/ajax.php:128
+msgid "Failed to import posts."
+msgstr ""
+
+#: demo-importer/ajax.php:140
+msgid "Pages imported successfully."
+msgstr ""
+
+#: demo-importer/ajax.php:160
+msgid "Failed to import pages."
+msgstr ""
+
+#: demo-importer/ajax.php:172
+msgid "Product categories imported successfully"
+msgstr ""
+
+#: demo-importer/ajax.php:182
+msgid "Failed to import product categories."
+msgstr ""
+
+#: demo-importer/ajax.php:194
+msgid "Product attributes imported successfully"
+msgstr ""
+
+#: demo-importer/ajax.php:204
+msgid "Failed to import product attributes."
+msgstr ""
+
+#: demo-importer/ajax.php:237
+msgid "Successfully imported %d out of %d products."
+msgstr ""
+
+#: demo-importer/ajax.php:239
+msgid "Found %d products."
+msgstr ""
+
+#: demo-importer/ajax.php:244
+msgid "Failed to import products."
+msgstr ""
+
+#: demo-importer/ajax.php:256
+msgid "Swatches imported successfully"
+msgstr ""
+
+#: demo-importer/ajax.php:265
+msgid "Failed to import swatches."
+msgstr ""
+
+#: demo-importer/ajax.php:278
+msgid "Cleaned up successfully."
+msgstr ""
+
+#: demo-importer/ajax.php:303
+msgid "Added"
+msgstr ""
+
+#: demo-importer/ajax.php:306
+msgid "Removed"
 msgstr ""
 
 #: inc/admin-fields.php:24
@@ -401,14 +485,14 @@ msgstr ""
 msgid "Invalid data"
 msgstr ""
 
-#: wc-booster.php:93
+#: wc-booster.php:95
 msgid ""
 "Unlock enhanced features with WC Booster by installing WooCommerce. This "
 "dynamic addon takes your e-commerce experience to the next level. Get "
 "started today!"
 msgstr ""
 
-#: wc-booster.php:98
+#: wc-booster.php:100
 msgid "Install & Activate"
 msgstr ""
 

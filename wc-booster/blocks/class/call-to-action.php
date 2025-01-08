@@ -184,6 +184,10 @@ if( !class_exists( 'WC_Booster_Cta_Block' ) ){
 		public function render( $attrs, $content, $block ){	
 			
 			$block_id = $attrs['block_id'];
+			$heading = $attrs[ 'heading' ];
+			$heading = str_replace( "u0022", '"', $heading );
+			$heading = str_replace( "u003c", "<", $heading );
+			$heading = str_replace( "u003e", ">", $heading );
 			ob_start();
 			?>
 
@@ -191,7 +195,7 @@ if( !class_exists( 'WC_Booster_Cta_Block' ) ){
 				<div class="wc-booster-cta-overlay" ></div>
 				<div class="<?php echo esc_attr( 'wc-booster-align-'.$attrs['alignment'] )?> wc-booster-cta-content " >
 					<div>
-						<h2> <?php echo ( $attrs['heading'] )?> </h2>
+						<h2> <?php echo ( $heading )?> </h2>
 					</div>	
 					<div>
 						<p><?php echo ( $attrs['subDescription'] )?></p>

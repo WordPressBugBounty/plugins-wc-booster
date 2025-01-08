@@ -5,7 +5,7 @@
  * Description: Advance your business by giving customers a distinctive shopping experience with WC Booster.
  * Author: Eagle Vision IT
  * Author URI: https://www.eaglevisionit.com/
- * Version: 2.6
+ * Version: 2.7
  * Requires at least: 6.1
  * Text Domain: wc-booster
  * Requires PHP: 7.3
@@ -28,8 +28,9 @@ function wc_booster_load(){
     do_action( 'wc_booster_before_load' );
 
     $files = array(
-        'custom-fields/main.php',
         'class/scripts.php',
+        'demo-importer/init.php',
+        'custom-fields/main.php',
         'class/slide/slide-out.php',
         'class/icons.php',
         'blocks/helper.php',
@@ -50,6 +51,7 @@ function wc_booster_load(){
         'inc/text-domain.php',
         'inc/checkout.php',
         'inc/admin-fields.php'
+        
     );
 
     if ( function_exists( 'wc_booster_pro_load' ) ) { 

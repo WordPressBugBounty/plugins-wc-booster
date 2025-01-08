@@ -13,7 +13,7 @@ class Script{
 	public function __construct(){
 		add_action( 'admin_enqueue_scripts', array( $this, 'scripts' ) );
 
-		$plugin_data = get_plugin_data( WC_Booster_File );
+		$plugin_data = get_plugin_data( WC_Booster_File, true, false );
 		$this->version = $plugin_data[ 'Version' ];
 		
 	}

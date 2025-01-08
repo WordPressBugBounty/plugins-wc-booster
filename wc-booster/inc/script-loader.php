@@ -27,7 +27,7 @@ if( !class_exists( 'WC_Booster_Script_Loader' ) ){
         }
 
         public function init(){
-            $plugin_data = get_plugin_data( WC_Booster_File );
+            $plugin_data = get_plugin_data( WC_Booster_File, true, false );
             if( is_admin() ){
                 $script = new WC_Booster_Script([
                     'hook' => 'enqueue_block_assets',

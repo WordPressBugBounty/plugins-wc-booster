@@ -288,7 +288,8 @@ const Edit = props => {
   } else {
     let selectedPages = [];
     if (typeof product_id === 'string' && product_id.trim() !== '') {
-      selectedPages = JSON.parse(product_id);
+      var temp = product_id.replaceAll('u0022', '"');
+      selectedPages = JSON.parse(temp);
     }
     const slidePages = selectedPages.filter(p => p.id && p.id !== 0).map((p, i) => {
       const _i = (0,_helpers__WEBPACK_IMPORTED_MODULE_11__.findIndex)(allProduct, {

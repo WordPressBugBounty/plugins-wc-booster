@@ -1,10 +1,10 @@
 === WC Booster ===
-Contributors: uzess, pradip56, bhuwanroka, eaglethemes
+Contributors: uzess, anil04, yamchhetri, bhuwanroka, eaglethemes
 Tags: online, ecommerce, shop, storefront, store
 Requires at least: 6.1
 Tested up to: 6.7
 Requires PHP: 7.3
-Stable tag: 2.6
+Stable tag: 2.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -232,3 +232,8 @@ License: https://github.com/t4t5/sweetalert/blob/master/LICENSE.md (MIT License)
 * Added countdown block
 * Added padding/border radius options on quick view block
 * General design fixing
+
+= 2.7 =
+* Fixed Notice: Function _load_textdomain_just_in_time was called incorrectly.
+* Added demo importer
+* General Fixing on blocks

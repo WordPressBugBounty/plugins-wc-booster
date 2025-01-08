@@ -166,7 +166,12 @@ if( !class_exists( 'WC_Booster_Category_Collage_Block' ) ){
 
 		public function get_query( $attrs ){
 
-    		$data = isset( $attrs[ 'cat_id' ] ) ? json_decode( $attrs[ 'cat_id' ] ) : false;
+			if( isset( $attrs[ 'cat_id' ] ) ){
+				$cat = str_replace( "u0022", '"', $attrs[ 'cat_id' ] );
+    			$data = json_decode( $cat );
+			}else{
+				$data = false;
+			}
 
             $ids = [];
             if ( $data ) {
@@ -190,6 +195,7 @@ if( !class_exists( 'WC_Booster_Category_Collage_Block' ) ){
 
 		public function render( $attrs, $content, $block ){
 			$block_content = '';
+
 			$query = $this->get_query( $attrs );
 			
 			if( $query ):

@@ -346,7 +346,12 @@ if( !class_exists( 'WC_Booster_Product_Review_Block' ) ){
 		}
 
 		public function get_query( $attrs ) {
-		    $data = isset( $attrs['product_id'] ) ? json_decode( $attrs['product_id'] ) : array();
+
+			$data = [];
+			if( isset( $attrs[ 'product_id' ] ) ){
+				$product_id = str_replace( "u0022", '"', $attrs[ 'product_id' ] );
+				$data = json_decode( $product_id );
+			}
 
 		    $comments = [];
 		    $counter = 0;

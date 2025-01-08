@@ -53,7 +53,7 @@ if( !class_exists( 'WC_Booster_Settings' ) ){
 		       $this->menu_slug,
 		       array( $this, 'render_main_page' ),
 		       'dashicons-cart', # icon
-		       55
+		       99
 		    );
 
 			add_submenu_page( 
@@ -63,7 +63,7 @@ if( !class_exists( 'WC_Booster_Settings' ) ){
 				'manage_options', # capability
 				'wc_booster_options', # menu_slug
 				array( $this->setting, 'render' ), # function
-				10 # position
+				99 # position
 			);
 		}
 

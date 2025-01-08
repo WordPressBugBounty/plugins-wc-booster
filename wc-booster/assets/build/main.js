@@ -1,4 +1,4 @@
-/*! wc-booster - v1.0.0 - 2024-11-21 */(function( $ ){
+/*! wc-booster - v1.0.0 - 2025-01-08 */(function( $ ){
 var circular_focus = {
 	init: function(){
 		var _this = this;

@@ -413,7 +413,7 @@
 				return $cat;
 			}
 
-			public function render( $attrs, $content, $block ) {
+			public function render( $attrs, $content, $block ){
 				$block_content = '';
 				$query = $this->get_query( $attrs );
 
@@ -431,7 +431,7 @@
 				if( $query->have_posts() ):
 					ob_start();
 
-					if( isset( $attrs[ 'categories' ] ) ) {
+					if( isset( $attrs[ 'categories' ] ) && !empty( $attrs[ 'categories' ] ) ) {
 						$_cat = get_term( absint( $attrs['categories'] ), 'product_cat' );
 						$cat = self::make_category_arr( $_cat );
 					}
@@ -458,7 +458,9 @@
 
 								if( !isset( $attrs[ 'categories' ] ) ) {
 									$_cat = get_the_terms( $id, 'product_cat' );
-									$cat = self::make_category_arr( $_cat[ 0 ] );
+									if( $_cat ){
+										$cat = self::make_category_arr( $_cat[ 0 ] );
+									}
 								}
 
 								if ( $attrs['imgType'] == 'normal' ) {
@@ -505,7 +507,7 @@
 									<div class="wc-booster-carousel-product-card">
 										<div class="wc-booster-carousel-product-body">
 											<div class="wc-booster-carousel-product-body-inner">
-												<?php if( $attrs[ 'enableRating' ] ): ?>
+												<?php if( $attrs[ 'enableRating' ] || !isset( $attrs[ 'enableRating' ] ) ): ?>
 													<div class="wc-booster-carousel-product-rating">
 														<?php echo wc_get_rating_html( $product->get_average_rating() ); ?>
 													</div>

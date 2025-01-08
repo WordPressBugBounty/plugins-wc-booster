@@ -56,6 +56,9 @@ if( !class_exists( 'WC_Booster_Blocks_Init' ) ){
         public function include_files(){
 
             require_once WC_Booster_Path . "blocks/base-block.php";
+            require_once WC_Booster_Path . "blocks/base-block.php";
+            require_once WC_Booster_Path . "blocks/base-block.php";
+            require_once WC_Booster_Path . "blocks/importer/init.php";
             
             $dir = WC_Booster_Path . "blocks/class/*.php";
             $dirs = array_filter( glob( $dir ), 'is_file' );
@@ -151,7 +154,7 @@ if( !class_exists( 'WC_Booster_Blocks_Init' ) ){
                     'author_name' => $comment->comment_author,
                     'date' => date('F j, Y', strtotime($comment->comment_date)),
                     'rating' => $average_rating_html,
-                    'review_image' => $avatar, // Assuming 'review_image' is the custom field storing the image URL
+                    'review_image' => $avatar,
                     'comment_text' => $comment->comment_content,
                     'wc_booster_p_id' => $product_id,
                 );
@@ -209,22 +212,18 @@ if( !class_exists( 'WC_Booster_Blocks_Init' ) ){
         }
 
         public function get_product_stock_data($object, $field_name, $request) {
-            // Get the product ID and WooCommerce product object
             $product_id = $object['id'];
             $product = wc_get_product($product_id);
 
-            // Check if the product object is valid
             if (!$product) {
                 return null;
             }
 
-            // Retrieve the data
             $manage_stock = $product->get_manage_stock();
             $total_stock  = $product->get_stock_quantity();
             $sold_stock   = get_post_meta($product_id, 'total_sales', true);
             $sold_stock   = $sold_stock ? intval($sold_stock) : 0;
 
-            // Package the data into an associative array
             $data = [
                 'manage_stock' => $manage_stock,
                 'total_stock' => $total_stock,
@@ -370,10 +369,11 @@ if( !class_exists( 'WC_Booster_Blocks_Init' ) ){
                 $l10n = apply_filters('wc_booster_l10n', array(
                     'image_size' => $size,
                     'plugin_path' => self::get_plugin_directory_uri(),
+                    'ajax_url' => admin_url('admin-ajax.php'),
                     'is_pro' => class_exists( "WC_Booster_Pro_Blocks_Init" ) ? "1" :"0"
                 ));
 
-                wp_localize_script( 'wc-booster-carousel-product-editor-script', 'WC_Booster_VAR', $l10n);
+                wp_localize_script( 'wc-booster-section-editor-script', 'WC_Booster_VAR', $l10n);
 
             }
         }
