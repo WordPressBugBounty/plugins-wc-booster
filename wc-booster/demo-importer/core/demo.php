@@ -22,8 +22,14 @@ if( !class_exists( 'Demo' ) ){
 
 			try{
 				
-				if( isset( $_GET[ 'refresh' ] ) ){
+				# Check if 24 hours have passed to unlink the 'site' file
+				$last_unlink_time = get_option( 'last_demo_unlink_time', 0 );
+				$current_time = time();
+
+				# Check if 24 hours have passed or if refresh is requested
+				if ( isset( $_GET['refresh'] ) || ($current_time - $last_unlink_time >= 86400) ) {
 					$file->unlink( 'site' );
+					update_option( 'last_demo_unlink_time', $current_time );
 				}
 
 				$slug = 'demo';

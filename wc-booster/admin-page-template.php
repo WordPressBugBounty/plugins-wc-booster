@@ -6,7 +6,7 @@
         </div>
 
         <div class="wc-booster-welcome-page-header-right">
-            <a href="https://wcbooster.com/recommended-themes/" target="_blank">
+            <a href="https://wcbooster.com/#themes" target="_blank">
                 <span class="dashicons dashicons-admin-customizer"></span>
                 Browse Compatible Themes
             </a>          
@@ -14,11 +14,20 @@
                 <span class="dashicons dashicons-star-filled"></span> 
                 Rate Us 
             </a>
-            <a href="https://wcbooster.com/contact/" target="_blank" class="get-support-btn">
+            <a href="https://wcbooster.com/contact-us" target="_blank" class="get-support-btn">
                 <span class="dashicons dashicons-admin-links"></span>
                 Get Support 
             </a>
-          
+            <?php
+                if ( !function_exists( 'wc_booster_pro_load' ) ) {
+                    ?>
+                    <a href="https://wcbooster.com/#pricing" target="_blank">
+                        <span class="dashicons dashicons-cart"></span>
+                        Buy Pro
+                    </a> 
+                    <?php
+                }
+            ?>
         </div>
     </div>
 
@@ -142,7 +151,7 @@
                             </div>
                             <h3><?php echo esc_html($pro_block['title']); ?></h3>
                             <p><?php echo esc_html($pro_block['description']); ?></p>
-                            <a href="#">Explore More</a>
+                            <a href="https://wcbooster.com/#blocks">Explore More</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -169,7 +178,7 @@
                             </div>
                             <h3><?php echo esc_html( $content[ 'title' ] ); ?></h3>
                             <p><?php echo esc_html( $content[ 'description' ] ); ?></p>
-                            <a href="#">Explore More</a>
+                            <a href="https://wcbooster.com/#blocks">Explore More</a>
                         </div>
                     </div>
                     <?php

@@ -20,11 +20,11 @@ if( !class_exists( 'WC_Booster_Search' ) ){
         public function init(){
             $this->settings = WC_Booster_Settings::get_instance(); 
             add_shortcode( 'wc_booster_search', array( $this, 'render_shortcode' ) );
-            if( 'on' == $this->settings->get_field( 'enable_search' ) ){
+            //if( 'on' == $this->settings->get_field( 'enable_search' ) ){
                 add_action( 'wp_ajax_wc_booster_get_product', array( $this, 'get_product' ) );
                 add_action( 'wp_ajax_nopriv_wc_booster_get_product', array( $this, 'get_product' ) );
-                add_filter( 'wp_nav_menu', array( $this, 'assign_to_menu' ), 20, 2 );
-            }
+                //add_filter( 'wp_nav_menu', array( $this, 'assign_to_menu' ), 20, 2 );
+            //}
         }
 
     	public function render_shortcode(){

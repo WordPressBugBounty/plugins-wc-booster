@@ -1549,7 +1549,7 @@ const Upgrader = ({
       __html: description
     }
   }), text && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "https://wcbooster.com/pricing/",
+    href: "https://wcbooster.com/#pricing",
     target: "_blank",
     rel: "noopener noreferrer"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
