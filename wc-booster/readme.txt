@@ -4,7 +4,7 @@ Tags: online, ecommerce, shop, storefront, store
 Requires at least: 6.1
 Tested up to: 6.7
 Requires PHP: 7.3
-Stable tag: 2.8
+Stable tag: 2.9
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -237,3 +237,6 @@ License: https://github.com/t4t5/sweetalert/blob/master/LICENSE.md (MIT License)
 * Fixed search form issue.
 * Added get pro button on plugin page
 * Fixed get pro button link
+
+= 2.9 =
+* Fix: demo importer issue for header template parts

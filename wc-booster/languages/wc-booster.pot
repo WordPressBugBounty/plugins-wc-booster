@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Booster - Minimalist product addon for WooCommmerce "
-"plugin 2.8\n"
+"plugin 2.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-booster\n"
-"POT-Creation-Date: 2025-02-14 08:48:30+00:00\n"
+"POT-Creation-Date: 2025-02-28 11:36:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -485,14 +485,14 @@ msgstr ""
 msgid "Invalid data"
 msgstr ""
 
-#: wc-booster.php:95
+#: wc-booster.php:96
 msgid ""
 "Unlock enhanced features with WC Booster by installing WooCommerce. This "
 "dynamic addon takes your e-commerce experience to the next level. Get "
 "started today!"
 msgstr ""
 
-#: wc-booster.php:100
+#: wc-booster.php:101
 msgid "Install & Activate"
 msgstr ""
 

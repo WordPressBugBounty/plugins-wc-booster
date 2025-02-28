@@ -24,6 +24,8 @@ if( !class_exists( 'WP_Template_Part' ) ){
 			
 			$mapper = Dynamic_Id_Mapper::get_instance();
 
+			$theme_slug = wp_get_theme()->get_stylesheet();
+
 			foreach( $pages as $page ){
 
 				if( $page[ 'post_status' ] != 'publish' ){
@@ -40,14 +42,15 @@ if( !class_exists( 'WP_Template_Part' ) ){
 				$content = $mapper->resolve( $page[ 'post_content' ] );
 				
 				if( $exist ){
+					$post_id = absint( $exist[0]->ID );
 					wp_update_post([
-						'ID' => absint( $exist[0]->ID ),
+						'ID' => $post_id,
 						'post_content' => wp_kses_post( $content ),
 						'post_title'   => sanitize_text_field( $page[ 'post_title' ] ),
 
 					]);
 				}else{
-					wp_insert_post([
+					$post_id = wp_insert_post([
 						'post_title'   => sanitize_text_field( $page[ 'post_title' ] ),
 						'post_excerpt' => wp_kses_post( $page[ 'post_excerpt' ] ),
 						'post_status'  => 'publish',
@@ -56,6 +59,8 @@ if( !class_exists( 'WP_Template_Part' ) ){
 						'post_content' => wp_kses_post( $content )
 					]);
 				}
+
+				wp_set_object_terms( $post_id, $theme_slug, 'wp_theme' );
 			}
 		}
 	}
